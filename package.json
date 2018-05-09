@@ -1,0 +1,60 @@
+{
+  "name": "bulma-toast",
+  "version": "0.1.0",
+  "description": "Bulma's extension to display toasts.",
+  "main": "dist/bulma-toast.sass",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfoel/bulma-toast.git"
+  },
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "author": "@rfoel <rafaelfr@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rfoel/bulma-toast/issues"
+  },
+  "homepage": "https://github.com/rfoel/bulma-toast#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-core": "^7.0.0-beta.3",
+    "bulma": "^0.7.1",
+    "camelcase": "^5.0.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-babel-minify": "^0.4.1",
+    "gulp-better-rollup": "^3.0.0",
+    "gulp-bump": "^3.1.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-conventional-changelog": "^1.1.11",
+    "gulp-git": "^2.5.1",
+    "gulp-modular-release": "^0.5.3",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "node-sass": "^4.9.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "run-sequence": "^2.2.1"
+  },
+  "files": [
+    "dist/bulma-toast.sass",
+    "dist/bulma-toast.min.css",
+    "dist/bulma-toast.js",
+    "dist/bulma-toast.min.js",
+    "LICENSE",
+    "README.md"
+  ]
+}
