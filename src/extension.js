@@ -1,20 +1,27 @@
 function toast({ message, type, duration, position }) {
-  let container = document.querySelector('.notices')
-  if (!container) {
-    container = document.createElement('div')
-    container.className = 'notices'
-    document.body.appendChild(container)
+  let noticesTop = document.querySelector('.notices.is-top')
+  let noticesBottom = document.querySelector('.notices.is-bottom')
+
+  if (!noticesTop) {
+    noticesTop = document.createElement('div')
+    noticesTop.className = 'notices is-top'
+    document.body.appendChild(noticesTop)
+  }
+  if (!noticesBottom) {
+    noticesBottom = document.createElement('div')
+    noticesBottom.className = 'notices is-bottom'
+    document.body.appendChild(noticesBottom)
   }
 
   let toast = document.createElement('div')
   let classes = ['notification']
-  if(type) classes.push(type)
-  if(position) classes.push(position)
-  if(type)
-  toast.classList = classes.join(' ')
+  if (type) classes.push(type)
+  if (position) classes.push(position)
+  if (type) toast.classList = classes.join(' ')
   toast.innerText = message
 
-  container.appendChild(toast)
+  if (position.includes('is-bottom')) noticesBottom.appendChild(toast)
+  else noticesTop.appendChild(toast)
 
   setTimeout(() => {
     toast.remove()
