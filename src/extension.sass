@@ -1,17 +1,22 @@
-.toast-container
+.notices
   position: fixed
   display: flex
+  width: 100%
+  height: 100%
   top: 0
   bottom: 0
   left: 0
   right: 0
-  padding: 2em
+  padding: 1em
   overflow: hidden
   z-index: 1000
   pointer-events: none
   justify-content: flex-start
   align-items: flex-start
   flex-direction: column
+  &.is-top
+  &.is-bottom
+    flex-direction: column-reverse
   .notification
     opacity: 0.8
     pointer-events: auto
