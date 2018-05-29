@@ -89,9 +89,9 @@ gulp.task('build:scripts', function() {
   return (
     gulp
       .src([paths.src + paths.jsPattern])
-      // .pipe(sourcemaps.init({
-      //   loadMaps: true
-      // }))
+      .pipe(sourcemaps.init({
+        loadMaps: true
+      }))
       .pipe(
         rollup(
           {

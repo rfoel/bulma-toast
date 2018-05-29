@@ -1,15 +1,13 @@
-function toast({ message, type, duration, position }) {
+export function show({ message, type, duration, position, dismissible }) {
   let noticesTop = document.querySelector('.notices.is-top')
   let noticesBottom = document.querySelector('.notices.is-bottom')
 
-  if (!noticesTop) {
+  if (!noticesTop || !noticesBottom) {
     noticesTop = document.createElement('div')
-    noticesTop.className = 'notices is-top'
-    document.body.appendChild(noticesTop)
-  }
-  if (!noticesBottom) {
     noticesBottom = document.createElement('div')
+    noticesTop.className = 'notices is-top'
     noticesBottom.className = 'notices is-bottom'
+    document.body.appendChild(noticesTop)
     document.body.appendChild(noticesBottom)
   }
 
@@ -17,8 +15,16 @@ function toast({ message, type, duration, position }) {
   let classes = ['notification']
   if (type) classes.push(type)
   if (position) classes.push(position)
-  if (type) toast.classList = classes.join(' ')
-  toast.innerText = message
+  toast.classList = classes.join(' ')
+  if (dismissible) {
+    let dismissButton = document.createElement('button')
+    dismissButton.className = 'delete'
+    dismissButton.addEventListener('click', () => {
+      toast.remove()
+    })
+    toast.insertAdjacentElement('afterbegin', dismissButton)
+  }
+  toast.insertAdjacentText('beforeend', message)
 
   if (position.includes('is-bottom')) noticesBottom.appendChild(toast)
   else noticesTop.appendChild(toast)

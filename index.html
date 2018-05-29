@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bulma Toast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="dist/bulma-toast.min.css" />
+  <script src="dist/bulma-toast.js"></script>
+</head>
+
+<body>
+  HI
+
+  <script>
+    bulmaToast.show({
+      message: 'Hello',
+      type: 'is-danger',
+      duration: 200000,
+      position: 'is-right',
+      dismissible: false
+    })
+    bulmaToast.show({
+      message: 'There',
+      type: 'is-success',
+      duration: 200000,
+      position: 'is-right',
+      dismissible: true
+    })
+    bulmaToast.show({
+      message: 'Demons',
+      type: 'is-warning',
+      duration: 200000,
+      position: 'is-right',
+      dismissible: true
+    })
+  </script>
+</body>
+
+</html>

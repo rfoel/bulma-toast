@@ -2,7 +2,6 @@
   "name": "bulma-toast",
   "version": "0.1.0",
   "description": "Bulma's extension to display toasts.",
-  "main": "dist/bulma-toast.sass",
   "scripts": {
     "build": "gulp"
   },
@@ -50,7 +49,7 @@
     "run-sequence": "^2.2.1"
   },
   "files": [
-    "dist/bulma-toast.sass",
+    "dist/bulma-toast.css",
     "dist/bulma-toast.min.css",
     "dist/bulma-toast.js",
     "dist/bulma-toast.min.js",
