@@ -50,7 +50,7 @@
     "run-sequence": "^2.2.1"
   },
   "files": [
-    "dist/bulma-toast.css",
+    "dist/bulma-toast.sass",
     "dist/bulma-toast.min.css",
     "dist/bulma-toast.js",
     "dist/bulma-toast.min.js",
