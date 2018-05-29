@@ -1,4 +1,12 @@
-export default function toast({ message, type, duration, position, dismissible }) {
+const defaultOptions = {
+  message: '',
+  type: '',
+  duration: Infinity,
+  position: 'is-right',
+  dismissible: false
+}
+
+export function toast({ message, type, duration, position, dismissible }) {
   let noticesTop = document.querySelector('.notices.is-top')
   let noticesBottom = document.querySelector('.notices.is-bottom')
 

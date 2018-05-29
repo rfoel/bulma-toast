@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('bulmaToast', factory) :
-	(global.bulmaToast = factory());
-}(this, (function () { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define('bulmaToast', ['exports'], factory) :
+	(factory((global.bulmaToast = {})));
+}(this, (function (exports) { 'use strict';
 
 function toast({ message, type, duration, position, dismissible }) {
   let noticesTop = document.querySelector('.notices.is-top');
@@ -40,6 +40,8 @@ function toast({ message, type, duration, position, dismissible }) {
   }, duration);
 }
 
-return toast;
+exports.toast = toast;
+
+Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
