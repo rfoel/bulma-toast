@@ -2,6 +2,7 @@
   "name": "bulma-toast",
   "version": "0.1.0",
   "description": "Bulma's extension to display toasts.",
+  "main": "dist/bulma-toast.min.js",
   "scripts": {
     "build": "gulp"
   },
