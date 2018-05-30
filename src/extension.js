@@ -1,12 +1,11 @@
-const defaultOptions = {
-  message: '',
-  type: '',
-  duration: Infinity,
-  position: 'is-right',
-  dismissible: false
+const defaults = {
+  message: 'Your message here',
+  duration: 2000,
+  position: 'is-right'
 }
 
-export function toast({ message, type, duration, position, dismissible }) {
+export function toast(params) {
+  let options = Object.assign({}, defaults, params)
   let noticesTop = document.querySelector('.notices.is-top')
   let noticesBottom = document.querySelector('.notices.is-bottom')
 
@@ -21,10 +20,10 @@ export function toast({ message, type, duration, position, dismissible }) {
 
   let toast = document.createElement('div')
   let classes = ['notification']
-  if (type) classes.push(type)
-  if (position) classes.push(position)
+  if (options.type) classes.push(options.type)
+  if (options.position) classes.push(options.position)
   toast.classList = classes.join(' ')
-  if (dismissible) {
+  if (options.dismissible) {
     let dismissButton = document.createElement('button')
     dismissButton.className = 'delete'
     dismissButton.addEventListener('click', () => {
@@ -32,12 +31,12 @@ export function toast({ message, type, duration, position, dismissible }) {
     })
     toast.insertAdjacentElement('afterbegin', dismissButton)
   }
-  toast.insertAdjacentText('beforeend', message)
+  toast.insertAdjacentText('beforeend', options.message)
 
-  if (position.includes('is-bottom')) noticesBottom.appendChild(toast)
+  if (options.position.includes('is-bottom')) noticesBottom.appendChild(toast)
   else noticesTop.appendChild(toast)
 
   setTimeout(() => {
     toast.remove()
-  }, duration)
+  }, options.duration)
 }
