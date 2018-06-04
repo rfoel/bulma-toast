@@ -6,11 +6,11 @@ Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notifi
 
 ## Options
 
-The plugin comes with 5 options:
+The plugin comes with 5 options to be used as a JavaScript object:
 
 - `message`: The actual message to be displayed.
 - `type`: Essentially a Bulma's css class. It can be `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`, or any other custom class. Default is a whitesmoke background with dark text as shown [here](https://bulma.io/documentation/elements/notification).
-- `duration`: Duration of the notification in milliseconds.
+- `duration`: Duration of the notification in milliseconds. Default is `2000` milliseconds.
 - `position`: Position where the notification will be shown. The default is top-right, so if you want it to be on the left just add `is-left` to this option. Similarly, add `is-bottom` to be displayed at the bottom, or `is-center` to be centered. It can also be done with multiple classes like `is-bottom is-left`.
 - `dismissible`: Whether the notification is dismissible or not. Default is `false`.
 
@@ -57,8 +57,10 @@ A simple default object to prevent errors. Your options will be merged with thes
 ```js
 {
   message: 'Your message here',
+  type: '',
   duration: 2000,
-  position: 'is-right'
+  position: 'is-right',
+  dismissible: false
 }
 ```
 
