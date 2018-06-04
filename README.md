@@ -61,3 +61,13 @@ A simple default object to prevent errors. Your options will be merged with thes
   position: 'is-right'
 }
 ```
+
+## Contributing
+
+Can you make this plugin better? Clean the mess I made? Feel free to do so!
+
+1.  Fork it ( https://github.com/rfoel/bulma-toast/fork )
+2.  Create your feature branch (`git checkout -b my-new-feature`)
+3.  Commit your changes (`git commit -am 'Add some feature'`)
+4.  Push to the branch (`git push origin my-new-feature`)
+5.  Create a new Pull Request
