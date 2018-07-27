@@ -44,14 +44,8 @@
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0",
     "regenerator-runtime": "^0.11.1",
-    "travis-deploy-once": "^5.0.0",
     "webpack": "^4.12.0",
     "webpack-stream": "^4.0.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
   },
   "files": [
     "dist/**",
