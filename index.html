@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bulma Toast</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <link href="dist/css/bulma-toast.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <script src="dist/js/bulma-toast.js"></script>
+  <script>
+    bulmaToast.toast({
+      message: 'Hello There',
+      type: 'is-success',
+      dismissible: true
+    })
+    bulmaToast.toast({
+      message: 'General Kenobi',
+      type: 'is-danger'
+    })
+  </script>
+</body>
+
+</html>
