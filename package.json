@@ -6,7 +6,6 @@
   "style": "./dist/css/bulma-toast.min.css",
   "scripts": {
     "build": "gulp"
-
   },
   "repository": {
     "type": "git",
