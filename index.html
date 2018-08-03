@@ -7,21 +7,66 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bulma Toast</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
-  <link href="dist/css/bulma-toast.min.css" rel="stylesheet" />
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
 
-  <script src="dist/js/bulma-toast.js"></script>
+  <script src="dist/bulma-toast.js"></script>
   <script>
     bulmaToast.toast({
-      message: 'Hello There',
-      type: 'is-success',
-      dismissible: true
+      message: 'Top Left',
+      type: 'is-info',
+      position: 'top-left',
+      duration: 400000
     })
+
     bulmaToast.toast({
-      message: 'General Kenobi',
-      type: 'is-danger'
+      message: 'Top Right',
+      type: 'is-success',
+      dismissible: true,
+      duration: 400000
+    })
+
+    bulmaToast.toast({
+      message: 'Top Center',
+      type: 'is-info',
+      position: 'top-center',
+      duration: 400000
+    })
+
+    bulmaToast.toast({
+      message: 'Bottom Left',
+      type: 'is-danger',
+      position: 'bottom-left',
+      duration: 400000
+    })
+
+    bulmaToast.toast({
+      message: 'Bottom Right',
+      type: 'is-warning',
+      position: 'bottom-right',
+      duration: 400000
+    })
+
+    bulmaToast.toast({
+      message: 'Bottom Center',
+      type: 'is-warning',
+      position: 'bottom-center',
+      duration: 400000
+    })
+
+    bulmaToast.toast({
+      message: 'Center',
+      type: 'is-warning',
+      position: 'center',
+      duration: 400000
     })
   </script>
 </body>

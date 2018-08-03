@@ -1,5 +1,7 @@
 # bulma-toast
 
+[![npm version](https://badge.fury.io/js/bulma-toast.svg)](https://badge.fury.io/js/bulma-toast)
+
 Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notification](https://bulma.io/documentation/elements/notification) implemented as a toast plugin.
 
 ![Screenshot](https://raw.githubusercontent.com/rfoel/bulma-toast/master/screenshot.png)
@@ -11,7 +13,7 @@ The plugin comes with 5 options to be used as a JavaScript object:
 - `message`: The actual message to be displayed.
 - `type`: Essentially a Bulma's css class. It can be `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`, or any other custom class. Default is a whitesmoke background with dark text as shown [here](https://bulma.io/documentation/elements/notification).
 - `duration`: Duration of the notification in milliseconds. Default is `2000` milliseconds.
-- `position`: Position where the notification will be shown. The default is top-right, so if you want it to be on the left just add `is-left` to this option. Similarly, add `is-bottom` to be displayed at the bottom, or `is-center` to be centered. It can also be done with multiple classes like `is-bottom is-left`.
+- `position`: Position where the notification will be shown. The default is `top-right`, so if you want it to be on the top-left just add `top-left` to this option. The available options are: `top-left`, `top-center`, `top-right`, `center`, `bottom-left`, `bottom-center`, and `bottom-right`.
 - `dismissible`: Whether the notification is dismissible or not. Default is `false`.
 
 ## Install
@@ -24,11 +26,9 @@ npm install --save bulma-toast
 
 ## Quick Start
 
-1.  Link to bulma-toast.min.css `<link href="bulma-toast.min.css" rel="stylesheet"/>`
+1.  Link to bulma-toast.min.js `<script src="bulma-toast.min.js"></script>`
 
-2.  Link to bulma-toast.min.js `<script src="bulma-toast.min.js"></script>`
-
-3.  use bulma-toast to display a toast
+2.  use bulma-toast to display a toast
     ```js
     bulmaToast.toast({ message: 'Hello There' })
     bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger' })
@@ -46,7 +46,7 @@ import { toast } from 'bulma-toast'
 toast({
   message: 'Hello There',
   type: 'is-success',
-  dismissible: true
+  dismissible: true,
 })
 ```
 
@@ -57,10 +57,8 @@ A simple default object to prevent errors. Your options will be merged with thes
 ```js
 {
   message: 'Your message here',
-  type: '',
   duration: 2000,
-  position: 'is-right',
-  dismissible: false
+  position: 'top-right',
 }
 ```
 
