@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/rfoel/bulma-toast/issues"
   },
-  "homepage": "https://github.com/rfoel/bulma-toast#readme",
+  "homepage": "https://rafaelfran.co/bulma-toast",
   "devDependencies": {
     "bili": "^3.1.2"
   },

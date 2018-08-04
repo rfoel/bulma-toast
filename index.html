@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bulma Toast</title>
+  <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
   <style>
     html,
@@ -13,61 +14,302 @@
       width: 100%;
       height: 100%;
     }
+
+    .toast {
+      height: 26px;
+      margin-right: 10px;
+    }
+
+    .title {
+      word-wrap: break-word;
+    }
+
+    ol {
+      padding-left: 15px;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+    }
+
+    footer img {
+      width: 150px;
+    }
   </style>
 </head>
 
 <body>
+  <section id="hero" class="hero is-light is-fullheight">
+    <div class="hero-head">
+      <header class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <svg class="toast" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <circle fill="currentColor" cx="155" cy="117" r="20" />
+                <circle fill="currentColor" cx="185" cy="422" r="20" />
+                <circle fill="currentColor" cx="212" cy="222" r="20" />
+                <circle fill="currentColor" cx="168" cy="315" r="20" />
+                <circle fill="currentColor" cx="358" cy="407" r="20" />
+                <path fill="currentColor" d="M254.682,0C167.844,0,101.027,14.15,56.089,42.056C20.968,63.866,0,95.022,0,125.399
+            c0,34.171,19.957,64.374,50.101,78.128v235.736c0,40.107,32.63,72.737,72.737,72.737h263.425C426.37,512,459,479.37,459,439.263
+            V204.68c31.492-13.164,53-44.275,53-79.281C512,78.824,457.805,0,254.682,0z M435.021,170.401L419,173.653v265.61
+            c0,18.051-14.686,32.737-32.737,32.736H122.838c-18.051,0-32.737-14.686-32.737-32.737V173.726l-15.215-3.749
+            C54.346,164.916,40,146.585,40,125.399c0-12.698,9.77-32.334,37.19-49.362C103.665,59.597,155.947,40,254.682,40
+            c98.922,0,151.914,19.645,178.95,36.126C461.921,93.369,472,112.886,472,125.401C472,147.126,456.448,166.051,435.021,170.401z"
+                />
+                <circle fill="currentColor" cx="376" cy="113" r="20" />
+                <circle fill="currentColor" cx="328" cy="254" r="20" />
+                <circle fill="currentColor" cx="248" cy="381" r="20" />
+              </svg>
+              Bulma Toast
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroC" class="navbar-menu">
+            <div class="navbar-end">
+              <a href="#hero" class="navbar-item">
+                Home
+              </a>
+              <a href="#doc" class="navbar-item">
+                Documentation
+              </a>
+              <span class="navbar-item">
+                <a class="button is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Source Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          Bulma's pure JavaScript extension to display toasts.
+          <strike>Basically a Bulma's notification implemented as a toast plugin.</strike>
+        </h1>
+        <h2 class="subtitle">
+          <div class="columns">
+            <div class="column">
+              <button class="button" onclick="displayToast('Top Left')">
+                Top Left
+              </button>
+            </div>
+            <div class="column">
+              <button class="button" onclick="displayToast('Top Center')">
+                Top Center
+              </button>
+            </div>
+            <div class="column">
+              <button class="button" onclick="displayToast('Top Right')">
+                Top Right
+              </button>
+            </div>
+            <div class="column">
+              <button class="button" onclick="displayToast('Center')">
+                Center
+              </button>
+            </div>
+            <div class="column">
+              <button class="button" onclick="displayToast('Bottom Left')">
+                Bottom Left
+              </button>
+            </div>
+            <div class="column">
+              <button class="button" onclick="displayToast('Bottom Center')">
+                Bottom Center
+              </button>
+            </div>
+            <div class="column">
+              <button class="button" onclick="displayToast('Bottom Right')">
+                Bottom Right
+              </button>
+            </div>
+          </div>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="doc" class="section container">
+    <h1 class="title">Documentation</h1>
+
+    <p class="block">
+      <a href="https://badge.fury.io/js/bulma-toast">
+        <img src="https://badge.fury.io/js/bulma-toast.svg" alt="npm version" />
+      </a>
+    </p>
+
+    <p class="block">
+      Bulma's pure JavaScript extension to display toasts. Basically a Bulma's
+      <a href="https://bulma.io/documentation/elements/notification">notification</a>
+      implemented as a toast plugin.
+    </p>
+
+    <h2 class="subtitle">Options</h2>
+
+    <p class="block">The plugin comes with 5 options to be used as a JavaScript object:</p>
+
+    <ul class="block">
+      <li>
+        <strong>message</strong>: The actual message to be displayed.</li>
+      <li>
+        <strong>type</strong>: Essentially a Bulma's css class. It can be
+        <code>is-primary</code>,
+        <code>is-link</code>,
+        <code>is-info</code>,
+        <code>is-success</code>,
+        <code>is-warning</code>,
+        <code>is-danger</code>, or any other custom class. Default is a whitesmoke background with dark text as shown
+        <a href="https://bulma.io/documentation/elements/notification">here</a>.</li>
+      <li>
+        <strong>duration</strong>: Duration of the notification in milliseconds. Default is
+        <code>2000</code> milliseconds.</li>
+      <li>
+        <strong>position</strong>: Position where the notification will be shown. The default is
+        <code>top-right</code>, so if you want it to be on the top-left just add
+        <code>top-left</code> to this option. The available options are:
+        <code>top-left</code>,
+        <code>top-center</code>,
+        <code>top-right</code>,
+        <code>center</code>,
+        <code>bottom-left</code>,
+        <code>bottom-center</code>, and
+        <code>bottom-right</code>.</li>
+      <li>
+        <code>dismissible</code>: Whether the notification is dismissible or not. Default is
+        <code>false</code>.</li>
+    </ul>
+
+    <h2 class="subtitle">Install</h2>
+
+    <h4 class="block">
+      <a href="https://www.npmjs.com/package/bulma-toast">npm</a>
+    </h4>
+
+    <pre class="block"><code>npm install --save bulma-toast</code></pre>
+
+    <h2 class="subtitle">Quick Start</h2>
+
+    <ol class="block">
+      <li>
+        <p>Link to bulma-toast.min.js
+          <code>&lt;script src="bulma-toast.min.js"&gt;&lt;/script&gt;</code>
+        </p>
+      </li>
+      <li>
+        <p>Use bulma-toast to display a toast</p>
+      </li>
+    </ol>
+    <pre class="block"><code class="js language-js">bulmaToast.toast({ message: 'Hello There' }) 
+bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger'})</code></pre>
+
+    <h2 class="subtitle">ES Modules</h2>
+
+    <pre class="block"><code class="js language-js">// Import the toast function
+import { toast } from 'bulma-toast'
+// Or use
+// import { toast as superToast } from 'bulma-toast'
+// to rename your import
+
+toast({
+  message: 'Hello There',
+  type: 'is-success',
+  dismissible: true,
+})
+</code></pre>
+
+    <h2 class="subtitle">The Defaults</h2>
+
+    <p class="block">A simple default object to prevent errors. Your options will be merged with these and the defaults will be used if the
+      fields are not provided.</p>
+
+    <pre class="block"><code class="js language-js">{
+  message: 'Your message here',
+  duration: 2000,
+  position: 'top-right',
+}
+</code></pre>
+
+    <h2 class="subtitle">Contributing</h2>
+
+    <p class="block">Can you make this plugin better? Clean the mess I made? Feel free to do so!</p>
+
+    <ol>
+      <li>Fork it (<a href="https://github.com/rfoel/bulma-toast/fork">https://github.com/rfoel/bulma-toast/fork</a>)</li>
+      <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+      <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+      <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+      <li>Create a new Pull Request</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <a href="https://bulma.io">
+      <img src="https://bulma.io/images/made-with-bulma--semiblack.png" alt="Made with Bulma">
+    </a>
+    <p>
+      Made by
+      <a href="https://rafaelfran.co">
+        Rafael Franco
+      </a>
+    </p>
+  </footer>
 
   <script src="dist/bulma-toast.js"></script>
   <script>
-    bulmaToast.toast({
-      message: 'Top Left',
-      type: 'is-info',
-      position: 'top-left',
-      duration: 400000
-    })
+    const types = ['is-primary', 'is-link', 'is-info', 'is-success', 'is-warning', 'is-danger']
+    const buttons = document.querySelectorAll('.hero-body button')
+    const toast = document.querySelector('.toast')
 
-    bulmaToast.toast({
-      message: 'Top Right',
-      type: 'is-success',
-      dismissible: true,
-      duration: 400000
-    })
+    setInterval(() => {
+      makeButtonsHappy()
+      makeToastHappy()
+    }, 4000)
 
-    bulmaToast.toast({
-      message: 'Top Center',
-      type: 'is-info',
-      position: 'top-center',
-      duration: 400000
-    })
+    function makeButtonsHappy() {
+      buttons.forEach(button => {
+        const type = types[Math.floor(types.length * Math.random())]
+        button.classList.add(type)
+        setTimeout(() => {
+          button.classList.remove(type)
+        }, 4000)
+      })
+    }
 
-    bulmaToast.toast({
-      message: 'Bottom Left',
-      type: 'is-danger',
-      position: 'bottom-left',
-      duration: 400000
-    })
+    function makeToastHappy() {
+      const type = types[Math.floor(types.length * Math.random())].split('-')[1]
+      toast.classList.add(`has-text-${type}`)
+      setTimeout(() => {
+        toast.classList.remove(`has-text-${type}`)
+      }, 4000)
+    }
 
-    bulmaToast.toast({
-      message: 'Bottom Right',
-      type: 'is-warning',
-      position: 'bottom-right',
-      duration: 400000
-    })
+    function displayToast(position) {
+      bulmaToast.toast({
+        message: position,
+        type: types[Math.floor(types.length * Math.random())],
+        position: position.toLowerCase().replace(' ', '-'),
+        dismissible: true,
+        duration: 4000
+      })
+    }
 
-    bulmaToast.toast({
-      message: 'Bottom Center',
-      type: 'is-warning',
-      position: 'bottom-center',
-      duration: 400000
-    })
-
-    bulmaToast.toast({
-      message: 'Center',
-      type: 'is-warning',
-      position: 'center',
-      duration: 400000
-    })
+    makeButtonsHappy()
+    makeToastHappy()
   </script>
 </body>
 
