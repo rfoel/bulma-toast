@@ -4,6 +4,8 @@
 
 Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notification](https://bulma.io/documentation/elements/notification) implemented as a toast plugin.
 
+[Demo](https://rafaelfran.co/bulma-toast/)
+
 ![Screenshot](https://raw.githubusercontent.com/rfoel/bulma-toast/master/screenshot.png)
 
 ## Options
