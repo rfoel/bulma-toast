@@ -9,11 +9,25 @@ export default [
       file: pkg.browser,
       format: 'umd',
     },
-    plugins: [minify()],
+    plugins: [
+      minify({
+        banner: `/*!\n * ${pkg.name} ${pkg.version} \n * (c) 2018-present ${pkg.author} \n * Released under the ${
+          pkg.license
+        } License.\n */`,
+        bannerNewLine: true,
+      }),
+    ],
   },
   {
     input: 'src/index.js',
     output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
-    plugins: [minify()],
+    plugins: [
+      minify({
+        banner: `/*!\n * ${pkg.name} ${pkg.version} \n * (c) 2018-present ${pkg.author} \n * Released under the ${
+          pkg.license
+        } License.\n */`,
+        bannerNewLine: true,
+      }),
+    ],
   },
 ]
