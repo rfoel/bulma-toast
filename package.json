@@ -4,7 +4,7 @@
   "description": "Bulma's pure JavaScript extension to display toasts",
   "main": "dist/bulma-toast.cjs.js",
   "module": "dist/bulma-toast.esm.js",
-  "browser": "dist/bulma-toast.umd.js",
+  "browser": "dist/bulma-toast.min.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c"
