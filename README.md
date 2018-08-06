@@ -30,9 +30,12 @@ npm install --save bulma-toast
 
 ## Quick Start
 
-1.  Link to bulma-toast.min.js `<script src="bulma-toast.min.js"></script>`
+1.  Link to bulma-toast.min.js
+    ```html
+    <script src="bulma-toast.min.js"></script>
+    ```
 
-2.  use bulma-toast to display a toast
+2.  Use bulma-toast to display a toast
     ```js
     bulmaToast.toast({ message: 'Hello There' })
     bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger' })

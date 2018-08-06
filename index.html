@@ -8,6 +8,7 @@
   <title>Bulma Toast</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+  <script src="dist/bulma-toast.min.js"></script>
 
   <style>
     html,
@@ -186,7 +187,6 @@
     </p>
   </footer>
 
-  <script src="dist/bulma-toast.js"></script>
   <script>
     const types = ['is-primary', 'is-link', 'is-info', 'is-success', 'is-warning', 'is-danger']
     const buttons = document.querySelectorAll('.hero-body button')
@@ -221,7 +221,7 @@
         type: types[Math.floor(types.length * Math.random())],
         position: position.toLowerCase().replace(' ', '-'),
         dismissible: true,
-        duration: 4000
+        duration: 4000,
       })
     }
 

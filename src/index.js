@@ -2,6 +2,7 @@ const defaults = {
   message: 'Your message here',
   duration: 2000,
   position: 'top-right',
+  closeOnClick: true,
 }
 
 let initialized = false
@@ -80,6 +81,11 @@ function createToast(options) {
   } else {
     style += 'padding: 1.25rem 1.5rem'
   }
+  if (options.closeOnClick) {
+    toast.addEventListener('click', () => {
+      toast.remove()
+    })
+  }
   toast.setAttribute('style', style)
   toast.insertAdjacentText('beforeend', options.message)
 
@@ -87,14 +93,14 @@ function createToast(options) {
     toast.remove()
   }, options.duration)
 
-  toast.addEventListener('mouseover', () => {
-    timer.pause()
-  })
-
-  toast.addEventListener('mouseout', () => {
-    timer.resume()
-  })
-
+  if (options.pauseOnHover) {
+    toast.addEventListener('mouseover', () => {
+      timer.pause()
+    })
+    toast.addEventListener('mouseout', () => {
+      timer.resume()
+    })
+  }
   return toast
 }
 
