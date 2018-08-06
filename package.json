@@ -2,8 +2,9 @@
   "name": "bulma-toast",
   "version": "1.0.1",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/bulma-toast.min.js",
   "scripts": {
+    "dev": "browser-sync start --server . --files \"src/index.js, index.html\"",
     "build": "bili --format umd,umd-min"
   },
   "repository": {
@@ -23,7 +24,8 @@
   },
   "homepage": "https://rafaelfran.co/bulma-toast",
   "devDependencies": {
-    "bili": "^3.1.2"
+    "bili": "^3.1.2",
+    "browser-sync": "^2.24.6"
   },
   "files": [
     "dist",
