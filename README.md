@@ -16,7 +16,9 @@ The plugin comes with 5 options to be used as a JavaScript object:
 - `type`: Essentially a Bulma's css class. It can be `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`, or any other custom class. Default is a whitesmoke background with dark text as shown [here](https://bulma.io/documentation/elements/notification).
 - `duration`: Duration of the notification in milliseconds. Default is `2000` milliseconds.
 - `position`: Position where the notification will be shown. The default is `top-right`, so if you want it to be on the top-left just add `top-left` to this option. The available options are: `top-left`, `top-center`, `top-right`, `center`, `bottom-left`, `bottom-center`, and `bottom-right`.
-- `dismissible`: Whether the notification is dismissible or not. Default is `false`.
+- `dismissible`: Whether the notification will have a close button or not. Default is `false`.
+- `pauseOnHover`: Pauses delay when hovering the notification. Default is `false`.
+- `closeOnClick`: Dismisses the notification when clicked. Default is `true`.
 
 ## Install
 

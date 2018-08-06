@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bulma Toast</title>
-  <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+
   <style>
     html,
     body {
@@ -20,8 +21,13 @@
       margin-right: 10px;
     }
 
-    .title {
-      word-wrap: break-word;
+    .icon {
+      color: #fff;
+      font-size: 0.8rem;
+    }
+
+    .icon svg {
+      width: 100%;
     }
 
     ol {
@@ -37,11 +43,25 @@
     footer img {
       width: 150px;
     }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.125;
+      margin: 25px 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin: 25px 0;
+    }
   </style>
 </head>
 
 <body>
-  <section id="hero" class="hero is-light is-fullheight">
+  <section id="top" class="hero is-light is-fullheight">
     <div class="hero-head">
       <header class="navbar">
         <div class="container">
@@ -74,7 +94,7 @@
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu">
             <div class="navbar-end">
-              <a href="#hero" class="navbar-item">
+              <a href="#top" class="navbar-item">
                 Home
               </a>
               <a href="#doc" class="navbar-item">
@@ -83,7 +103,9 @@
               <span class="navbar-item">
                 <a class="button is-dark">
                   <span class="icon">
-                    <i class="fab fa-github"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                      <path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                    </svg>
                   </span>
                   <span>Source Code</span>
                 </a>
@@ -145,116 +167,11 @@
   </section>
 
   <section id="doc" class="section container">
-    <h1 class="title">Documentation</h1>
-
-    <p class="block">
-      <a href="https://badge.fury.io/js/bulma-toast">
-        <img src="https://badge.fury.io/js/bulma-toast.svg" alt="npm version" />
-      </a>
-    </p>
-
-    <p class="block">
-      Bulma's pure JavaScript extension to display toasts. Basically a Bulma's
-      <a href="https://bulma.io/documentation/elements/notification">notification</a>
-      implemented as a toast plugin.
-    </p>
-
-    <h2 class="subtitle">Options</h2>
-
-    <p class="block">The plugin comes with 5 options to be used as a JavaScript object:</p>
-
-    <ul class="block">
-      <li>
-        <strong>message</strong>: The actual message to be displayed.</li>
-      <li>
-        <strong>type</strong>: Essentially a Bulma's css class. It can be
-        <code>is-primary</code>,
-        <code>is-link</code>,
-        <code>is-info</code>,
-        <code>is-success</code>,
-        <code>is-warning</code>,
-        <code>is-danger</code>, or any other custom class. Default is a whitesmoke background with dark text as shown
-        <a href="https://bulma.io/documentation/elements/notification">here</a>.</li>
-      <li>
-        <strong>duration</strong>: Duration of the notification in milliseconds. Default is
-        <code>2000</code> milliseconds.</li>
-      <li>
-        <strong>position</strong>: Position where the notification will be shown. The default is
-        <code>top-right</code>, so if you want it to be on the top-left just add
-        <code>top-left</code> to this option. The available options are:
-        <code>top-left</code>,
-        <code>top-center</code>,
-        <code>top-right</code>,
-        <code>center</code>,
-        <code>bottom-left</code>,
-        <code>bottom-center</code>, and
-        <code>bottom-right</code>.</li>
-      <li>
-        <code>dismissible</code>: Whether the notification is dismissible or not. Default is
-        <code>false</code>.</li>
-    </ul>
-
-    <h2 class="subtitle">Install</h2>
-
-    <h4 class="block">
-      <a href="https://www.npmjs.com/package/bulma-toast">npm</a>
-    </h4>
-
-    <pre class="block"><code>npm install --save bulma-toast</code></pre>
-
-    <h2 class="subtitle">Quick Start</h2>
-
-    <ol class="block">
-      <li>
-        <p>Link to bulma-toast.min.js
-          <code>&lt;script src="bulma-toast.min.js"&gt;&lt;/script&gt;</code>
-        </p>
-      </li>
-      <li>
-        <p>Use bulma-toast to display a toast</p>
-      </li>
-    </ol>
-    <pre class="block"><code class="js language-js">bulmaToast.toast({ message: 'Hello There' }) 
-bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger'})</code></pre>
-
-    <h2 class="subtitle">ES Modules</h2>
-
-    <pre class="block"><code class="js language-js">// Import the toast function
-import { toast } from 'bulma-toast'
-// Or use
-// import { toast as superToast } from 'bulma-toast'
-// to rename your import
-
-toast({
-  message: 'Hello There',
-  type: 'is-success',
-  dismissible: true,
-})
-</code></pre>
-
-    <h2 class="subtitle">The Defaults</h2>
-
-    <p class="block">A simple default object to prevent errors. Your options will be merged with these and the defaults will be used if the
-      fields are not provided.</p>
-
-    <pre class="block"><code class="js language-js">{
-  message: 'Your message here',
-  duration: 2000,
-  position: 'top-right',
-}
-</code></pre>
-
-    <h2 class="subtitle">Contributing</h2>
-
-    <p class="block">Can you make this plugin better? Clean the mess I made? Feel free to do so!</p>
-
-    <ol>
-      <li>Fork it (<a href="https://github.com/rfoel/bulma-toast/fork">https://github.com/rfoel/bulma-toast/fork</a>)</li>
-      <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
-      <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
-      <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
-      <li>Create a new Pull Request</li>
-    </ol>
+    <div class="has-text-centered">
+      Docs at
+      <a href="https://github.com/rfoel/bulma-toast" target="_blank">GitHub</a> or
+      <a href="https://www.npmjs.com/package/bulma-toast" target="_blank">NPM</a>.
+    </div>
   </section>
 
   <footer class="footer">
@@ -310,6 +227,19 @@ toast({
 
     makeButtonsHappy()
     makeToastHappy()
+
+    const converter = new showdown.Converter()
+    const doc = document.querySelector('#doc')
+    fetch('https://raw.githubusercontent.com/rfoel/bulma-toast/master/README.md')
+      .then(response => {
+        if (!response.ok) throw response
+        return response.text()
+      })
+      .then(
+        md => {
+          const html = converter.makeHtml(md);
+          doc.innerHTML = html
+        })
   </script>
 </body>
 
