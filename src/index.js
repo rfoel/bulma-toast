@@ -22,21 +22,21 @@ function init() {
   let style =
     'width:100%;z-index:99999;position:fixed;pointer-events:none;display:flex;flex-direction:column;padding:15px;'
 
-  containers.noticesTopLeft.setAttribute('style', style + 'left:0;top:0;text-align:left;align-items:flex-start;')
-  containers.noticesTopRight.setAttribute('style', style + 'right:0;top:0;text-align:right;align-items:flex-end;')
-  containers.noticesBottomLeft.setAttribute('style', style + 'left:0;bottom:0;text-align:left;align-items:flex-start;')
-  containers.noticesBottomRight.setAttribute('style', style + 'right:0;bottom:0;text-align:right;align-items:flex-end;')
+  containers.noticesTopLeft.setAttribute('style', `${style}left:0;top:0;text-align:left;align-items:flex-start;`)
+  containers.noticesTopRight.setAttribute('style', `${style}right:0;top:0;text-align:right;align-items:flex-end;`)
+  containers.noticesBottomLeft.setAttribute('style', `${style}left:0;bottom:0;text-align:left;align-items:flex-start;`)
+  containers.noticesBottomRight.setAttribute('style', `${style}right:0;bottom:0;text-align:right;align-items:flex-end;`)
   containers.noticesTopCenter.setAttribute(
     'style',
-    style + 'top:0;left:0;right:0;text-align:center;align-items:center;',
+    `${style}top:0;left:0;right:0;text-align:center;align-items:center;`,
   )
   containers.noticesBottomCenter.setAttribute(
     'style',
-    style + 'bottom:0;left:0;right:0;text-align:center;align-items:center;',
+    `${style}bottom:0;left:0;right:0;text-align:center;align-items:center;`,
   )
   containers.noticesCenter.setAttribute(
     'style',
-    style + 'top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;',
+    `${style}top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;`,
   )
 
   Object.keys(containers).forEach(key => document.body.appendChild(containers[key]))
@@ -62,10 +62,6 @@ export function toast(params) {
   const container = positions[options.position] || positions[defaults.position]
 
   container.appendChild(toast)
-
-  setTimeout(() => {
-    toast.remove()
-  }, options.duration)
 }
 
 function createToast(options) {
@@ -87,5 +83,36 @@ function createToast(options) {
   toast.setAttribute('style', style)
   toast.insertAdjacentText('beforeend', options.message)
 
+  const timer = new Timer(() => {
+    toast.remove()
+  }, options.duration)
+
+  toast.addEventListener('mouseover', () => {
+    timer.pause()
+  })
+
+  toast.addEventListener('mouseout', () => {
+    timer.resume()
+  })
+
   return toast
+}
+
+function Timer(callback, delay) {
+  let timer,
+    start,
+    remaining = delay
+
+  this.pause = function() {
+    window.clearTimeout(timer)
+    remaining -= new Date() - start
+  }
+
+  this.resume = function() {
+    start = new Date()
+    window.clearTimeout(timer)
+    timer = window.setTimeout(callback, remaining)
+  }
+
+  this.resume()
 }
