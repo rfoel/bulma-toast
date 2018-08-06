@@ -59,7 +59,7 @@ export function toast(params) {
   let options = Object.assign({}, defaults, params)
 
   const toast = createToast(options)
-  const container = positions[options.position]
+  const container = positions[options.position] || positions[defaults.position]
 
   container.appendChild(toast)
 

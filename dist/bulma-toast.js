@@ -50,7 +50,7 @@
     if (!initialized) init();
     var options = Object.assign({}, defaults, params);
     var toast = createToast(options);
-    var container = positions[options.position];
+    var container = positions[options.position] || positions[defaults.position];
     container.appendChild(toast);
     setTimeout(function () {
       toast.remove();
