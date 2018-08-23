@@ -1,6 +1,6 @@
 {
   "name": "bulma-toast",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Bulma's pure JavaScript extension to display toasts",
   "main": "dist/bulma-toast.cjs.js",
   "module": "dist/bulma-toast.esm.js",

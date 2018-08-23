@@ -19,6 +19,7 @@ The plugin comes with 5 options to be used as a JavaScript object:
 - `dismissible`: Whether the notification will have a close button or not. Default is `false`.
 - `pauseOnHover`: Pauses delay when hovering the notification. Default is `false`.
 - `closeOnClick`: Dismisses the notification when clicked. Default is `true`.
+- `opacity`: The notification's container opacity. Default is `0.8`.
 
 ## Install
 
@@ -31,30 +32,31 @@ npm install --save bulma-toast
 ## Quick Start
 
 1.  Link to bulma-toast.min.js
+
     ```html
     <script src="bulma-toast.min.js"></script>
     ```
 
 2.  Use bulma-toast to display a toast
     ```js
-    bulmaToast.toast({ message: 'Hello There' })
-    bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger' })
+    bulmaToast.toast({ message: "Hello There" });
+    bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
     ```
 
 ## ES Modules
 
 ```js
 // Import the toast function
-import { toast } from 'bulma-toast'
+import { toast } from "bulma-toast";
 // Or use
 // import { toast as superToast } from 'bulma-toast'
 // to rename your import
 
 toast({
-  message: 'Hello There',
-  type: 'is-success',
-  dismissible: true,
-})
+  message: "Hello There",
+  type: "is-success",
+  dismissible: true
+});
 ```
 
 ## The Defaults
