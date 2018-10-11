@@ -21,7 +21,7 @@ The plugin comes with 5 options to be used as a JavaScript object:
 - `pauseOnHover`: Pauses delay when hovering the notification. Default is `false`.
 - `closeOnClick`: Dismisses the notification when clicked. Default is `true`.
 - `opacity`: The notification's container opacity. Default is `1`.
-- `animate`: [See here](#Animate.css). Default is no animations.
+- `animate`: [See here](#animate.css). Default is no animations.
 
 ## Install
 
