@@ -3,7 +3,7 @@ const defaults = {
   duration: 2000,
   position: "top-right",
   closeOnClick: true,
-  opacity: 0.8
+  opacity: 1
 };
 
 let initialized = false;
@@ -64,7 +64,7 @@ function init() {
     "bottom-left": containers.noticesBottomLeft,
     "bottom-right": containers.noticesBottomRight,
     "bottom-center": containers.noticesBottomCenter,
-    "center": containers.noticesCenter
+    center: containers.noticesCenter
   };
 
   initialized = true;
@@ -74,68 +74,110 @@ export function toast(params) {
   if (!initialized) init();
   let options = Object.assign({}, defaults, params);
 
-  const toast = createToast(options);
+  const toast = new Toast(options);
   const container = positions[options.position] || positions[defaults.position];
 
-  container.appendChild(toast);
+  container.appendChild(toast.element);
 }
 
-function createToast(options) {
-  const toast = document.createElement("div");
-  let style = `width:auto;pointer-events:auto;display:inline-flex;opacity:${
-    options.opacity
-  };`;
-  let classes = ["notification"];
-  if (options.type) classes.push(options.type);
-  toast.classList = classes.join(" ");
-  if (options.dismissible) {
-    let dismissButton = document.createElement("button");
-    dismissButton.className = "delete";
-    dismissButton.addEventListener("click", () => {
-      toast.remove();
-    });
-    toast.insertAdjacentElement("afterbegin", dismissButton);
-  } else {
-    style += "padding: 1.25rem 1.5rem";
-  }
-  if (options.closeOnClick) {
-    toast.addEventListener("click", () => {
-      toast.remove();
-    });
-  }
-  toast.setAttribute("style", style);
-  toast.insertAdjacentText("beforeend", options.message);
+class Toast {
+  constructor(options) {
+    this.element = document.createElement("div");
+    this.opacity = options.opacity;
+    this.type = options.type;
+    this.animate = options.animate;
+    this.dismissible = options.dismissible;
+    this.closeOnClick = options.closeOnClick;
+    this.message = options.message;
+    this.duration = options.duration;
+    this.pauseOnHover = options.pauseOnHover;
 
-  const timer = new Timer(() => {
-    toast.remove();
-  }, options.duration);
+    let style = `width:auto;pointer-events:auto;display:inline-flex;opacity:${
+      this.opacity
+    };`;
+    let classes = ["notification"];
+    if (this.type) classes.push(this.type);
+    if (this.animate && this.animate.in) {
+      classes.push(`animated ${this.animate.in}`);
+      this.onAnimationEnd(() => this.element.classList.remove(this.animate.in));
+    }
+    this.element.classList = classes.join(" ");
+    if (this.dismissible) {
+      let dismissButton = document.createElement("button");
+      dismissButton.className = "delete";
+      dismissButton.addEventListener("click", () => {
+        this.destroy();
+      });
+      this.element.insertAdjacentElement("afterbegin", dismissButton);
+    } else {
+      style += "padding: 1.25rem 1.5rem";
+    }
+    if (this.closeOnClick) {
+      this.element.addEventListener("click", () => {
+        this.destroy();
+      });
+    }
+    this.element.setAttribute("style", style);
+    this.element.insertAdjacentText("beforeend", this.message);
 
-  if (options.pauseOnHover) {
-    toast.addEventListener("mouseover", () => {
-      timer.pause();
-    });
-    toast.addEventListener("mouseout", () => {
-      timer.resume();
-    });
+    const timer = new Timer(() => {
+      this.destroy();
+    }, this.duration);
+
+    if (this.pauseOnHover) {
+      this.element.addEventListener("mouseover", () => {
+        timer.pause();
+      });
+      this.element.addEventListener("mouseout", () => {
+        timer.resume();
+      });
+    }
   }
-  return toast;
+
+  destroy() {
+    if (this.animate && this.animate.out) {
+      this.element.classList.add(this.animate.out);
+      this.onAnimationEnd(() => this.element.remove());
+    } else {
+      this.element.remove();
+    }
+  }
+
+  onAnimationEnd(callback = () => {}) {
+    const animations = {
+      animation: "animationend",
+      OAnimation: "oAnimationEnd",
+      MozAnimation: "mozAnimationEnd",
+      WebkitAnimation: "webkitAnimationEnd"
+    };
+
+    for (const t in animations) {
+      if (this.element.style[t] !== undefined) {
+        this.element.addEventListener(animations[t], () => callback());
+        break;
+      }
+    }
+  }
 }
 
-function Timer(callback, delay) {
-  let timer,
-    start,
-    remaining = delay;
+class Timer {
+  constructor(callback, delay) {
+    this.timer;
+    this.start;
+    this.remaining = delay;
+    this.callback = callback;
 
-  this.pause = function() {
-    window.clearTimeout(timer);
-    remaining -= new Date() - start;
-  };
+    this.resume();
+  }
 
-  this.resume = function() {
-    start = new Date();
-    window.clearTimeout(timer);
-    timer = window.setTimeout(callback, remaining);
-  };
+  pause() {
+    window.clearTimeout(this.timer);
+    this.remaining -= new Date() - this.start;
+  }
 
-  this.resume();
+  resume() {
+    this.start = new Date();
+    window.clearTimeout(this.timer);
+    this.timer = window.setTimeout(this.callback, this.remaining);
+  }
 }

@@ -7,7 +7,7 @@ Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notifi
 
 [Demo](https://rafaelfran.co/bulma-toast/)
 
-![Screenshot](https://raw.githubusercontent.com/rfoel/bulma-toast/master/screenshot.png)
+![Bulma Toast](https://raw.githubusercontent.com/rfoel/bulma-toast/master/bulma-toast.gif)
 
 ## Options
 
@@ -20,44 +20,46 @@ The plugin comes with 5 options to be used as a JavaScript object:
 - `dismissible`: Whether the notification will have a close button or not. Default is `false`.
 - `pauseOnHover`: Pauses delay when hovering the notification. Default is `false`.
 - `closeOnClick`: Dismisses the notification when clicked. Default is `true`.
-- `opacity`: The notification's container opacity. Default is `0.8`.
+- `opacity`: The notification's container opacity. Default is `1`.
+- `animate`: [See here](#Animate.css). Default is no animations.
 
 ## Install
 
 #### [npm](https://www.npmjs.com/package/bulma-toast)
 
 ```
-npm install --save bulma-toast
+  npm install --save bulma-toast
 ```
 
 ## Quick Start
 
 1.  Link to bulma-toast.min.js
 
-    ```html
-    <script src="bulma-toast.min.js"></script>
-    ```
+```html
+  <script src="bulma-toast.min.js"></script>
+```
 
 2.  Use bulma-toast to display a toast
-    ```js
-    bulmaToast.toast({ message: "Hello There" });
-    bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
-    ```
+```js
+  bulmaToast.toast({ message: "Hello There" });
+  bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
+```
 
 ## ES Modules
 
 ```js
-// Import the toast function
-import { toast } from "bulma-toast";
-// Or use
-// import { toast as superToast } from 'bulma-toast'
-// to rename your import
+  // Import the toast function
+  import { toast } from "bulma-toast";
+  // Or use
+  // import { toast as superToast } from 'bulma-toast'
+  // to rename your import
 
-toast({
-  message: "Hello There",
-  type: "is-success",
-  dismissible: true
-});
+  toast({
+    message: "Hello There",
+    type: "is-success",
+    dismissible: true,
+    animate: { in: "fadeIn", out: "fadeOut" }
+  });
 ```
 
 ## The Defaults
@@ -65,11 +67,39 @@ toast({
 A simple default object to prevent errors. Your options will be merged with these and the defaults will be used if the fields are not provided.
 
 ```js
-{
-  message: 'Your message here',
-  duration: 2000,
-  position: 'top-right',
-}
+  {
+    message: "Your message here",
+    duration: 2000,
+    position: "top-right",
+    closeOnClick: true,
+    opacity: 1
+  }
+```
+
+## Animate.css
+
+You MUST include [animate.css](https://daneden.github.io/animate.css/) on your document's `<head>`
+
+```html
+  <head>
+    <link rel="stylesheet" href="animate.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  </head>
+```
+
+Bulma Toast supports [animate.css](https://daneden.github.io/animate.css/) (and maybe others?). Accepts a object with `in` and `out` with css classes to add animations. Using Animate.css you would pass a object like this: 
+
+```js
+  {
+    message: "I'm animated! Yay!",
+    duration: 2000,
+    position: "top-right",
+    opacity: 1,
+    animate: { in: 'fadeIn', out: 'fadeOut' }
+  }
 ```
 
 ## Contributing
