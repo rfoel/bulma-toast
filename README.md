@@ -21,7 +21,7 @@ The plugin comes with 5 options to be used as a JavaScript object:
 - `pauseOnHover`: Pauses delay when hovering the notification. Default is `false`.
 - `closeOnClick`: Dismisses the notification when clicked. Default is `true`.
 - `opacity`: The notification's container opacity. Default is `1`.
-- `animate`: [See here](#animate.css). Default is no animations.
+- `animate`: [See here](#animate). Default is no animations.
 
 ## Install
 
@@ -40,26 +40,27 @@ The plugin comes with 5 options to be used as a JavaScript object:
 ```
 
 2.  Use bulma-toast to display a toast
+
 ```js
-  bulmaToast.toast({ message: "Hello There" });
-  bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
+bulmaToast.toast({ message: "Hello There" });
+bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
 ```
 
 ## ES Modules
 
 ```js
-  // Import the toast function
-  import { toast } from "bulma-toast";
-  // Or use
-  // import { toast as superToast } from 'bulma-toast'
-  // to rename your import
+// Import the toast function
+import { toast } from "bulma-toast";
+// Or use
+// import { toast as superToast } from 'bulma-toast'
+// to rename your import
 
-  toast({
-    message: "Hello There",
-    type: "is-success",
-    dismissible: true,
-    animate: { in: "fadeIn", out: "fadeOut" }
-  });
+toast({
+  message: "Hello There",
+  type: "is-success",
+  dismissible: true,
+  animate: { in: "fadeIn", out: "fadeOut" }
+});
 ```
 
 ## The Defaults
@@ -76,9 +77,9 @@ A simple default object to prevent errors. Your options will be merged with thes
   }
 ```
 
-## Animate.css
+## Animate
 
-You MUST include [animate.css](https://daneden.github.io/animate.css/) on your document's `<head>`
+Bulma Toast supports [animate.css](https://daneden.github.io/animate.css/) (and maybe others?). You MUST include [animate.css](https://daneden.github.io/animate.css/) on your document's `<head>`
 
 ```html
   <head>
@@ -90,7 +91,7 @@ You MUST include [animate.css](https://daneden.github.io/animate.css/) on your d
   </head>
 ```
 
-Bulma Toast supports [animate.css](https://daneden.github.io/animate.css/) (and maybe others?). Accepts a object with `in` and `out` with css classes to add animations. Using Animate.css you would pass a object like this: 
+Accepts a object with `in` and `out` with css classes to add animations. Using Animate.css you would pass a object like this:
 
 ```js
   {
