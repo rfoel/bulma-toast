@@ -199,11 +199,11 @@
     }
 
     function displayToast(position) {
-      fetch('http://api.adviceslip.com/advice')
+      fetch('https://talaikis.com/api/quotes/random/')
         .then(response => response.json())
         .then(response => {
           bulmaToast.toast({
-            message: response.slip.advice,
+            message: response.quote,
             type: types[Math.floor(types.length * Math.random())],
             position: position.toLowerCase().replace(' ', '-'),
             dismissible: true,
