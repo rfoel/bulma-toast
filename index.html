@@ -117,52 +117,35 @@
       </header>
     </div>
 
-    <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container has-text-centered">
         <h1 class="title">
           Bulma's pure JavaScript extension to display toasts.
-          <strike>Basically a Bulma's notification implemented as a toast plugin.</strike>
+          Basically a Bulma's notification implemented as a toast plugin.
         </h1>
-        <h2 class="subtitle">
-          <div class="columns">
-            <div class="column">
-              <button class="button" onclick="displayToast('Top Left')">
-                Top Left
-              </button>
-            </div>
-            <div class="column">
-              <button class="button" onclick="displayToast('Top Center')">
-                Top Center
-              </button>
-            </div>
-            <div class="column">
-              <button class="button" onclick="displayToast('Top Right')">
-                Top Right
-              </button>
-            </div>
-            <div class="column">
-              <button class="button" onclick="displayToast('Center')">
-                Center
-              </button>
-            </div>
-            <div class="column">
-              <button class="button" onclick="displayToast('Bottom Left')">
-                Bottom Left
-              </button>
-            </div>
-            <div class="column">
-              <button class="button" onclick="displayToast('Bottom Center')">
-                Bottom Center
-              </button>
-            </div>
-            <div class="column">
-              <button class="button" onclick="displayToast('Bottom Right')">
-                Bottom Right
-              </button>
-            </div>
-          </div>
-        </h2>
+        <div class="buttons is-centered">
+          <button class="button" onclick="displayToast('Top Left')">
+            Top Left
+          </button>
+          <button class="button" onclick="displayToast('Top Center')">
+            Top Center
+          </button>
+          <button class="button" onclick="displayToast('Top Right')">
+            Top Right
+          </button>
+          <button class="button" onclick="displayToast('Center')">
+            Center
+          </button>
+          <button class="button" onclick="displayToast('Bottom Left')">
+            Bottom Left
+          </button>
+          <button class="button" onclick="displayToast('Bottom Center')">
+            Bottom Center
+          </button>
+          <button class="button" onclick="displayToast('Bottom Right')">
+            Bottom Right
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -216,14 +199,19 @@
     }
 
     function displayToast(position) {
-      bulmaToast.toast({
-        message: position,
-        type: types[Math.floor(types.length * Math.random())],
-        position: position.toLowerCase().replace(' ', '-'),
-        dismissible: true,
-        duration: 4000,
-        animate: { in: 'fadeIn', out: 'fadeOut' }
-      })
+      fetch('http://api.adviceslip.com/advice')
+        .then(response => response.json())
+        .then(response => {
+          bulmaToast.toast({
+            message: response.slip.advice,
+            type: types[Math.floor(types.length * Math.random())],
+            position: position.toLowerCase().replace(' ', '-'),
+            dismissible: true,
+            duration: 4000,
+            pauseOnHover: true,
+            animate: { in: 'fadeIn', out: 'fadeOut' }
+          })
+        })
     }
 
     makeButtonsHappy()

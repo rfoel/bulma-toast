@@ -118,7 +118,12 @@ class Toast {
       });
     }
     this.element.setAttribute("style", style);
-    this.element.insertAdjacentText("beforeend", this.message);
+
+    if (typeof this.message === "string") {
+      this.element.insertAdjacentHTML("beforeend", this.message);
+    } else {
+      this.element.appendChild(this.message);
+    }
 
     const timer = new Timer(() => {
       this.destroy();
