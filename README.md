@@ -7,13 +7,13 @@ Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notifi
 
 [Demo](https://rafaelfran.co/bulma-toast/)
 
-![Bulma Toast](https://raw.githubusercontent.com/rfoel/bulma-toast/master/bulma-toast.gif)
+![Bulma Toast](https://raw.githubusercontent.com/rfoel/bulma-toast/master/bulma-toast.png)
 
 ## Options
 
 The plugin comes with 5 options to be used as a JavaScript object:
 
-- `message`: The actual message to be displayed.
+- `message`: The actual message to be displayed. It can be a string, a template string, or a DOM node. [See examples](#examples).
 - `type`: Essentially a Bulma's css class. It can be `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`, or any other custom class. Default is a whitesmoke background with dark text as shown [here](https://bulma.io/documentation/elements/notification).
 - `duration`: Duration of the notification in milliseconds. Default is `2000` milliseconds.
 - `position`: Position where the notification will be shown. The default is `top-right`, so if you want it to be on the top-left just add `top-left` to this option. The available options are: `top-left`, `top-center`, `top-right`, `center`, `bottom-left`, `bottom-center`, and `bottom-right`.
@@ -98,9 +98,55 @@ Accepts a object with `in` and `out` with css classes to add animations. Using A
     message: "I'm animated! Yay!",
     duration: 2000,
     position: "top-right",
-    opacity: 1,
     animate: { in: 'fadeIn', out: 'fadeOut' }
   }
+```
+
+_Warning_: Don't use `opacity` when using animations. Some of them use the opacity property like fade in and fade out.
+
+## Examples
+
+```js
+import { toast } from "bulma-toast";
+
+toast({
+  message: "Hello There",
+  type: "is-success",
+  dismissible: true,
+  pauseOnHover: true
+});
+
+toast({
+  message: "<h1>LOOK HERE</h1>",
+  type: "is-danger",
+  dismissible: true,
+  pauseOnHover: true,
+  animate: { in: "fadeIn", out: "fadeOut" }
+});
+
+const myMessage = `It's ${new Date().toDateString()}`;
+
+toast({
+  message: myMessage,
+  type: "is-primary",
+  position: "center",
+  closeOnClick: true,
+  pauseOnHover: true,
+  opacity: 0.8
+});
+
+const elm = document.createElement("a");
+elm.text = "Visit my website!";
+elm.href = "https://rfoel.com";
+
+toast({
+  message: elm,
+  type: "is-warning",
+  position: "center",
+  closeOnClick: true,
+  pauseOnHover: true,
+  animate: { in: "fadeIn", out: "fadeOut" }
+});
 ```
 
 ## Contributing
@@ -108,7 +154,7 @@ Accepts a object with `in` and `out` with css classes to add animations. Using A
 Can you make this plugin better? Clean the mess I made? Feel free to do so!
 
 1.  Fork it ( https://github.com/rfoel/bulma-toast/fork )
-2.  Create your feature branch (`git checkout -b my-new-feature`)
+2.  Create your feature branch (`git checkout -b my_new_feature`)
 3.  Commit your changes (`git commit -am 'Add some feature'`)
-4.  Push to the branch (`git push origin my-new-feature`)
+4.  Push to the branch (`git push origin my_new_feature`)
 5.  Create a new Pull Request
