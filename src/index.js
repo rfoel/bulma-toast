@@ -10,15 +10,17 @@ let initialized = false;
 let containers = {};
 let positions = {};
 
+export let doc = document;
+
 function init() {
   containers = {
-    noticesTopLeft: document.createElement("div"),
-    noticesTopRight: document.createElement("div"),
-    noticesBottomLeft: document.createElement("div"),
-    noticesBottomRight: document.createElement("div"),
-    noticesTopCenter: document.createElement("div"),
-    noticesBottomCenter: document.createElement("div"),
-    noticesCenter: document.createElement("div")
+    noticesTopLeft: doc.createElement("div"),
+    noticesTopRight: doc.createElement("div"),
+    noticesBottomLeft: doc.createElement("div"),
+    noticesBottomRight: doc.createElement("div"),
+    noticesTopCenter: doc.createElement("div"),
+    noticesBottomCenter: doc.createElement("div"),
+    noticesCenter: doc.createElement("div")
   };
 
   let style =
@@ -54,7 +56,7 @@ function init() {
   );
 
   Object.keys(containers).forEach(key =>
-    document.body.appendChild(containers[key])
+    doc.body.appendChild(containers[key])
   );
 
   positions = {
@@ -82,7 +84,7 @@ export function toast(params) {
 
 class Toast {
   constructor(options) {
-    this.element = document.createElement("div");
+    this.element = doc.createElement("div");
     this.opacity = options.opacity;
     this.type = options.type;
     this.animate = options.animate;
@@ -103,7 +105,7 @@ class Toast {
     }
     this.element.classList = classes.join(" ");
     if (this.dismissible) {
-      let dismissButton = document.createElement("button");
+      let dismissButton = doc.createElement("button");
       dismissButton.className = "delete";
       dismissButton.addEventListener("click", () => {
         this.destroy();
