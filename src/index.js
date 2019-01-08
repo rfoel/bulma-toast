@@ -54,7 +54,7 @@ function init() {
     `${style}top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;`
   );
 
-  for (key in containers) {
+  for (let key in containers) {
     doc.body.appendChild(containers[key])
   }
 
@@ -82,7 +82,7 @@ export function toast(params) {
 }
 
 export function setDoc(newDoc) {
-  for (key in containers) {
+  for (let key in containers) {
     let element = containers[key];
     element.parentNode.removeChild(element);
   }
