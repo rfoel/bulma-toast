@@ -49,7 +49,7 @@ bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
 ## Change document context
 
 ```js
-bulmaToast.doc = window.document;
+bulmaToast.setDoc(window.document);
 ```
 This can be changed before each toast call and can be set to eny element.
 
