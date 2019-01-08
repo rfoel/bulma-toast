@@ -46,11 +46,18 @@ bulmaToast.toast({ message: "Hello There" });
 bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
 ```
 
+## Change document context
+
+```js
+bulmaToast.setDoc(window.document);
+```
+This can be changed before each toast call and can be set to eny element.
+
 ## ES Modules
 
 ```js
 // Import the toast function
-import { toast } from "bulma-toast";
+import * as bulmaToast from "bulma-toast";
 // Or use
 // import { toast as superToast } from 'bulma-toast'
 // to rename your import

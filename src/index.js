@@ -9,16 +9,17 @@ const defaults = {
 let initialized = false;
 let containers = {};
 let positions = {};
+let doc = document;
 
 function init() {
   containers = {
-    noticesTopLeft: document.createElement("div"),
-    noticesTopRight: document.createElement("div"),
-    noticesBottomLeft: document.createElement("div"),
-    noticesBottomRight: document.createElement("div"),
-    noticesTopCenter: document.createElement("div"),
-    noticesBottomCenter: document.createElement("div"),
-    noticesCenter: document.createElement("div")
+    noticesTopLeft: doc.createElement("div"),
+    noticesTopRight: doc.createElement("div"),
+    noticesBottomLeft: doc.createElement("div"),
+    noticesBottomRight: doc.createElement("div"),
+    noticesTopCenter: doc.createElement("div"),
+    noticesBottomCenter: doc.createElement("div"),
+    noticesCenter: doc.createElement("div")
   };
 
   let style =
@@ -53,9 +54,9 @@ function init() {
     `${style}top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;`
   );
 
-  Object.keys(containers).forEach(key =>
-    document.body.appendChild(containers[key])
-  );
+  for (let key in containers) {
+    doc.body.appendChild(containers[key])
+  }
 
   positions = {
     "top-left": containers.noticesTopLeft,
@@ -80,9 +81,19 @@ export function toast(params) {
   container.appendChild(toast.element);
 }
 
+export function setDoc(newDoc) {
+  for (let key in containers) {
+    let element = containers[key];
+    element.parentNode.removeChild(element);
+  }
+
+  doc = newDoc;
+  init();
+}
+
 class Toast {
   constructor(options) {
-    this.element = document.createElement("div");
+    this.element = doc.createElement("div");
     this.opacity = options.opacity;
     this.type = options.type;
     this.animate = options.animate;
@@ -103,7 +114,7 @@ class Toast {
     }
     this.element.classList = classes.join(" ");
     if (this.dismissible) {
-      let dismissButton = document.createElement("button");
+      let dismissButton = doc.createElement("button");
       dismissButton.className = "delete";
       dismissButton.addEventListener("click", () => {
         this.destroy();
