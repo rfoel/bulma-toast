@@ -9,8 +9,7 @@ const defaults = {
 let initialized = false;
 let containers = {};
 let positions = {};
-
-export let doc = document;
+let doc = document;
 
 function init() {
   containers = {
@@ -55,9 +54,9 @@ function init() {
     `${style}top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;`
   );
 
-  Object.keys(containers).forEach(key =>
+  for (key in containers) {
     doc.body.appendChild(containers[key])
-  );
+  }
 
   positions = {
     "top-left": containers.noticesTopLeft,
@@ -80,6 +79,16 @@ export function toast(params) {
   const container = positions[options.position] || positions[defaults.position];
 
   container.appendChild(toast.element);
+}
+
+export function setDoc(newDoc) {
+  for (key in containers) {
+    let element = containers[key];
+    element.parentNode.removeChild(element);
+  }
+
+  doc = newDoc;
+  init();
 }
 
 class Toast {
