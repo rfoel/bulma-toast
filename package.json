@@ -36,5 +36,6 @@
     "src",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "types": "index.d.ts"
 }
