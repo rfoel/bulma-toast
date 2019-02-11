@@ -1,5 +1,5 @@
 /*!
- * bulma-toast 1.4.0 
+ * bulma-toast 1.5.0 
  * (c) 2018-present @rfoel <rafaelfr@outlook.com> 
  * Released under the MIT License.
  */
