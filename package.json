@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/rfoel/bulma-toast/issues"
   },
-  "homepage": "https://rafaelfran.co/bulma-toast",
+  "homepage": "https://rfoel.com/bulma-toast",
   "devDependencies": {
     "jest": "^23.6.0",
     "rollup": "^0.63.5",
