@@ -105,7 +105,7 @@ class Toast {
 
     let style = `width:auto;pointer-events:auto;display:inline-flex;opacity:${
       this.opacity
-    };`;
+      };`;
     let classes = ["notification"];
     if (this.type) classes.push(this.type);
     if (this.animate && this.animate.in) {
@@ -159,7 +159,7 @@ class Toast {
     }
   }
 
-  onAnimationEnd(callback = () => {}) {
+  onAnimationEnd(callback = () => { }) {
     const animations = {
       animation: "animationend",
       OAnimation: "oAnimationEnd",
