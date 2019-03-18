@@ -27,7 +27,7 @@
   },
   "homepage": "https://rfoel.com/bulma-toast",
   "devDependencies": {
-    "jest": "^23.6.0",
+    "jest": "^24.5.0",
     "rollup": "^0.63.5",
     "rollup-plugin-babel-minify": "^5.0.0"
   },

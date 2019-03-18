@@ -55,7 +55,7 @@ function init() {
   );
 
   for (let key in containers) {
-    doc.body.appendChild(containers[key])
+    doc.body.appendChild(containers[key]);
   }
 
   positions = {
@@ -105,7 +105,7 @@ class Toast {
 
     let style = `width:auto;pointer-events:auto;display:inline-flex;opacity:${
       this.opacity
-      };`;
+    };`;
     let classes = ["notification"];
     if (this.type) classes.push(this.type);
     if (this.animate && this.animate.in) {
@@ -154,13 +154,17 @@ class Toast {
   destroy() {
     if (this.animate && this.animate.out) {
       this.element.classList.add(this.animate.out);
-      this.onAnimationEnd(() => this.element.parentNode.removeChild(this.element));
+      this.onAnimationEnd(() => this.removeChild(this.element));
     } else {
-      this.element.parentNode.removeChild(this.element);
+      this.removeChild(this.element);
     }
   }
 
-  onAnimationEnd(callback = () => { }) {
+  removeChild(element) {
+    if (element.parentNode) element.parentNode.removeChild(element);
+  }
+
+  onAnimationEnd(callback = () => {}) {
     const animations = {
       animation: "animationend",
       OAnimation: "oAnimationEnd",
