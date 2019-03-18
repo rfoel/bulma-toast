@@ -154,9 +154,9 @@ class Toast {
   destroy() {
     if (this.animate && this.animate.out) {
       this.element.classList.add(this.animate.out);
-      this.onAnimationEnd(() => this.element.remove());
+      this.onAnimationEnd(() => this.element.parentNode.removeChild(this.element));
     } else {
-      this.element.remove();
+      this.element.parentNode.removeChild(this.element);
     }
   }
 
