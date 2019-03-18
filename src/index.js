@@ -112,7 +112,8 @@ class Toast {
       classes.push(`animated ${this.animate.in}`);
       this.onAnimationEnd(() => this.element.classList.remove(this.animate.in));
     }
-    this.element.classList = classes.join(" ");
+    // this.element.classList = classes.join(" ");
+    this.element.className = classes.join(" ");
     if (this.dismissible) {
       let dismissButton = doc.createElement("button");
       dismissButton.className = "delete";
@@ -153,9 +154,9 @@ class Toast {
   destroy() {
     if (this.animate && this.animate.out) {
       this.element.classList.add(this.animate.out);
-      this.onAnimationEnd(() => this.element.remove());
+      this.onAnimationEnd(() => this.element.parentNode.removeChild(this.element));
     } else {
-      this.element.remove();
+      this.element.parentNode.removeChild(this.element);
     }
   }
 
