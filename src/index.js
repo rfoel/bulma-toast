@@ -112,7 +112,8 @@ class Toast {
       classes.push(`animated ${this.animate.in}`);
       this.onAnimationEnd(() => this.element.classList.remove(this.animate.in));
     }
-    this.element.classList = classes.join(" ");
+    // this.element.classList = classes.join(" ");
+    this.element.className = classes.join(" ");
     if (this.dismissible) {
       let dismissButton = doc.createElement("button");
       dismissButton.className = "delete";
