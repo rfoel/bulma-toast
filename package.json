@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
   "homepage": "https://rfoel.com/bulma-toast",
   "devDependencies": {
     "jest": "^24.9.0",
+    "jest-environment-jsdom-fourteen": "^0.1.0",
     "rollup": "^1.23.1",
+    "rollup-jest": "^0.0.2",
     "rollup-plugin-babel-minify": "^9.1.0"
   },
   "files": [
@@ -38,5 +41,14 @@
     "README.md",
     "index.d.ts"
   ],
-  "types": "index.d.ts"
+  "types": "index.d.ts",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/index.js",
+      "!**/node_modules/**",
+      "!**/dist/**"
+    ],
+    "preset": "rollup-jest",
+    "testEnvironment": "jest-environment-jsdom-fourteen"
+  }
 }
