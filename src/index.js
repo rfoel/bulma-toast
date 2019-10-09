@@ -103,7 +103,7 @@ class Toast {
     this.duration = options.duration;
     this.pauseOnHover = options.pauseOnHover;
 
-    let style = `width:auto;pointer-events:auto;display:inline-flex;opacity:${
+    let style = `width:auto;pointer-events:auto;display:inline-flex;white-space:pre-wrap;opacity:${
       this.opacity
     };`;
     let classes = ["notification"];
@@ -112,7 +112,7 @@ class Toast {
       classes.push(`animated ${this.animate.in}`);
       this.onAnimationEnd(() => this.element.classList.remove(this.animate.in));
     }
-    // this.element.classList = classes.join(" ");
+
     this.element.className = classes.join(" ");
     if (this.dismissible) {
       let dismissButton = doc.createElement("button");
