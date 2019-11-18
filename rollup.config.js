@@ -1,4 +1,5 @@
 import minify from "rollup-plugin-babel-minify";
+import babel from 'rollup-plugin-babel';
 import pkg from "./package.json";
 
 export default [
@@ -10,6 +11,9 @@ export default [
       format: "umd"
     },
     plugins: [
+      babel({
+        exclude: 'node_modules/**'
+      }),
       minify({
         banner: `/*!\n * ${pkg.name} ${pkg.version} \n * (c) 2018-present ${
           pkg.author
@@ -25,6 +29,9 @@ export default [
       { file: pkg.module, format: "es" }
     ],
     plugins: [
+      babel({
+        exclude: 'node_modules/**'
+      }),
       minify({
         banner: `/*!\n * ${pkg.name} ${pkg.version} \n * (c) 2018-present ${
           pkg.author
