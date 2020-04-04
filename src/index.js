@@ -3,7 +3,8 @@ const defaults = {
   duration: 2000,
   position: "top-right",
   closeOnClick: true,
-  opacity: 1
+  opacity: 1,
+  single: false, // Addig the ability to have a single one only.
 };
 
 let initialized = false;
@@ -78,6 +79,15 @@ export function toast(params) {
   const toast = new Toast(options);
   const container = positions[options.position] || positions[defaults.position];
 
+  // Remove current toasts when single is true.
+  if (options.single) {
+    let child = container.lastElementChild;  
+    while (child) {
+      container.removeChild(child);
+      child = container.lastElementChild;
+    }
+  }
+
   container.appendChild(toast.element);
 }
 
@@ -109,7 +119,9 @@ class Toast {
     let classes = ["notification"];
     if (this.type) classes.push(this.type);
     if (this.animate && this.animate.in) {
-      classes.push(`animated ${this.animate.in}`);
+      // Adding the option to set animation speed available in animate.css, 'faster' is the default
+      let speed = this.animate.speed || 'faster';
+      classes.push(`animated ${this.animate.in} ${speed}`);
       this.onAnimationEnd(() => this.element.classList.remove(this.animate.in));
     }
 
