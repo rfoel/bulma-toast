@@ -30,11 +30,14 @@
   "homepage": "https://rfoel.com/bulma-toast",
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
     "jest": "^24.9.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "rollup": "^1.23.1",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-babel-minify": "^9.1.0"
+    "rollup-plugin-babel-minify": "^9.1.0",
+    "standard-version": "^7.1.0"
   },
   "files": [
     "dist",
@@ -48,5 +51,10 @@
       "!**/dist/**"
     ],
     "testEnvironment": "jest-environment-jsdom-sixteen"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
