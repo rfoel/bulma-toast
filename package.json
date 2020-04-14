@@ -6,10 +6,11 @@
   "module": "dist/bulma-toast.esm.js",
   "browser": "dist/bulma-toast.min.js",
   "scripts": {
-    "dev": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "prepublishOnly": "yarn build",
+    "release": "standard-version",
+    "start": "rollup -c -w",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,17 +31,13 @@
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
     "jest": "^24.9.0",
-    "jest-environment-jsdom-fourteen": "^0.1.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "rollup": "^1.23.1",
-    "rollup-jest": "^0.0.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-babel-minify": "^9.1.0"
   },
   "files": [
     "dist",
-    "src",
-    "LICENSE",
-    "README.md",
     "index.d.ts"
   ],
   "types": "index.d.ts",
@@ -50,6 +47,6 @@
       "!**/node_modules/**",
       "!**/dist/**"
     ],
-    "testEnvironment": "jest-environment-jsdom-fourteen"
+    "testEnvironment": "jest-environment-jsdom-sixteen"
   }
 }
