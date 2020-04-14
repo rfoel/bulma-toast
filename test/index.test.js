@@ -11,6 +11,8 @@ describe("toast", () => {
         dismissible: true,
         duration: 1000,
         pauseOnHover: true,
+        animate: { in: "fadeIn", out: "fadeOut", 'speed': 'fast' },
+        single: true
       })
     );
 
