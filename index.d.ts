@@ -17,7 +17,11 @@ export type ToastType = 'is-primary'
   | 'is-info'
   | 'is-success'
   | 'is-warning'
-  | 'is-danger';
+  | 'is-danger'
+  | 'is-white'
+  | 'is-black'
+  | 'is-light'
+  | 'is-dark';
 
 export type ToastPosition = 'top-left'
   | 'top-right'
