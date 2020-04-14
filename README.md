@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/bulma-toast.svg)](https://badge.fury.io/js/bulma-toast)
 ![Build Status](https://github.com/rfoel/bulma-toast/workflows/Publish/badge.svg?branch=master)
+
 Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notification](https://bulma.io/documentation/elements/notification) implemented as a toast plugin.
 
 [Demo](https://rfoel.github.io/bulma-toast/)
