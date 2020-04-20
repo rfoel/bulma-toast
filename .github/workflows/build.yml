@@ -14,8 +14,8 @@ jobs:
         run: |
           git remote set-url origin https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git checkout master
-          git config --global user.email octobot@github.com
-          git config --global user.name GitHub Actions
+          git config --global user.email rafaelfr@outlook.com
+          git config --global user.name Rafael Franco
       - uses: actions/setup-node@v1
         with:
           node-version: 12
