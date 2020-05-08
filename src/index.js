@@ -81,9 +81,10 @@ class Toast {
     const classes = ['notification']
     if (this.type) classes.push(this.type)
     if (this.animate && this.animate.in) {
-      const speed = this.animate.speed || 'faster'
-      classes.push(`animated ${this.animate.in} ${speed}`)
-      this.onAnimationEnd(() => this.element.classList.remove(this.animate.in))
+      const animateInClass = `animate__${this.animate.in}`
+      const speed = this.animate.speed ? `animate__${this.animate.speed}` : 'animate__faster'
+      classes.push(`animate__animated ${animateInClass} ${speed}`)
+      this.onAnimationEnd(() => this.element.classList.remove(animateInClass))
     }
 
     this.element.className = classes.join(' ')
@@ -126,7 +127,7 @@ class Toast {
 
   destroy() {
     if (this.animate && this.animate.out) {
-      this.element.classList.add(this.animate.out)
+      this.element.classList.add(`animate__${this.animate.out}`)
       this.onAnimationEnd(() => {
         this.removeParent(this.element)
         delete containers.position
