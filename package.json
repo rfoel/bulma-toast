@@ -37,7 +37,7 @@
     "rollup": "^1.23.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-babel-minify": "^9.1.0",
-    "standard-version": "^7.1.0"
+    "standard-version": "^8.0.1"
   },
   "files": [
     "dist",
