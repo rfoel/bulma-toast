@@ -129,17 +129,21 @@ class Toast {
     if (this.animate && this.animate.out) {
       this.element.classList.add(`animate__${this.animate.out}`)
       this.onAnimationEnd(() => {
-        this.removeParent(this.element)
+        this.removeParent(this.element.parentNode)
+        this.element.remove();
         delete containers.position
       })
     } else {
-      this.removeParent(this.element)
+      this.removeParent(this.element.parentNode)
+      this.element.remove();
       delete containers.position
     }
   }
 
   removeParent(element) {
-    if (element.parentNode) element.parentNode.remove()
+    if (element && element.children.length <= 1) {
+      element.remove()
+    }
   }
 
   onAnimationEnd(callback = () => { }) {

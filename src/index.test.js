@@ -40,6 +40,49 @@ describe('toast', () => {
     notification.querySelector('.delete').click()
     expect(document.body.querySelector('div')).toBeFalsy()
   })
+
+  it('should not remove parent while there are other toasts', (done) => {
+    const timeoutPromise = (timeout) => new Promise((resolve) => setTimeout(resolve, timeout));
+    // One toast for a second
+    toast({
+      message: 'Hello there',
+      type: 'is-primary',
+      position: 'top-left',
+      dismissible: true,
+      duration: 1000,
+      pauseOnHover: true,
+      single: false,
+    });
+    // One toast for a half a second
+    toast({
+      message: 'Hello there',
+      type: 'is-primary',
+      position: 'top-left',
+      dismissible: true,
+      duration: 500,
+      pauseOnHover: true,
+      single: false,
+    });
+    Promise.all([
+      timeoutPromise(100)
+        .then(() => {
+          // after 100ms, there should be 2 toasts
+          expect(document.querySelectorAll('.notification').length).toBe(2)
+        }),
+      timeoutPromise(600)
+        .then(() => {
+          // after 600ms, there should be 1 toasts
+          expect(document.querySelectorAll('.notification').length).toBe(1)
+        }),
+      timeoutPromise(1100)
+        .then(() => {
+          // after 110ms, there should be 0 toasts
+          expect(document.querySelectorAll('.notification').length).toBe(0)
+        }),
+    ])
+      .then(() => done())
+      .catch((e) => done(e))
+  })
 })
 
 describe('animations', () => {
