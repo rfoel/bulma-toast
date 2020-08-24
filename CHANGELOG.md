@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.3 (2020-08-24)
+
+
+### Bug Fixes
+
+* fix window undefined for ssr ([145e43b](https://github.com/rfoel/bulma-toast/commit/145e43b7388ea235eae1f1366591bb95f64fd387))
+
 ### 2.0.2 (2020-08-24)
 
 ### 2.0.1 (2020-05-27)
