@@ -16,7 +16,8 @@ const CONTAINER_STYLES = {
   'top-center': 'top:0;left:0;right:0;text-align:center;align-items:center;',
   'bottom-left': 'left:0;bottom:0;text-align:left;align-items:flex-start;',
   'bottom-right': 'right:0;bottom:0;text-align:right;align-items:flex-end;',
-  'bottom-center': 'bottom:0;left:0;right:0;text-align:center;align-items:center;',
+  'bottom-center':
+    'bottom:0;left:0;right:0;text-align:center;align-items:center;',
   center:
     'top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;',
 }
@@ -82,7 +83,9 @@ class Toast {
     if (this.type) classes.push(this.type)
     if (this.animate && this.animate.in) {
       const animateInClass = `animate__${this.animate.in}`
-      const speed = this.animate.speed ? `animate__${this.animate.speed}` : 'animate__faster'
+      const speed = this.animate.speed
+        ? `animate__${this.animate.speed}`
+        : 'animate__faster'
       classes.push(`animate__animated ${animateInClass} ${speed}`)
       this.onAnimationEnd(() => this.element.classList.remove(animateInClass))
     }
@@ -130,12 +133,12 @@ class Toast {
       this.element.classList.add(`animate__${this.animate.out}`)
       this.onAnimationEnd(() => {
         this.removeParent(this.element.parentNode)
-        this.element.remove();
+        this.element.remove()
         delete containers.position
       })
     } else {
       this.removeParent(this.element.parentNode)
-      this.element.remove();
+      this.element.remove()
       delete containers.position
     }
   }
@@ -146,7 +149,7 @@ class Toast {
     }
   }
 
-  onAnimationEnd(callback = () => { }) {
+  onAnimationEnd(callback = () => {}) {
     const animations = {
       animation: 'animationend',
       OAnimation: 'oAnimationEnd',
@@ -174,11 +177,13 @@ class Timer {
   }
 
   pause() {
+    if (typeof document === 'undefined') return
     window.clearTimeout(this.timer)
     this.remaining -= new Date() - this.start
   }
 
   resume() {
+    if (typeof document === 'undefined') return
     this.start = new Date()
     window.clearTimeout(this.timer)
     this.timer = window.setTimeout(this.callback, this.remaining)
