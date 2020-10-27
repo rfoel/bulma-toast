@@ -7,8 +7,7 @@
   "browser": "dist/bulma-toast.min.js",
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "yarn build",
-    "release": "standard-version",
+    "prepublishOnly": "npm run build",
     "start": "rollup -c -w",
     "test": "jest"
   },
@@ -17,7 +16,7 @@
     "url": "git+https://github.com/rfoel/bulma-toast.git"
   },
   "keywords": [
-    "Bulma",
+    "bulma",
     "bulma",
     "extensions",
     "bulma.io"
@@ -30,14 +29,18 @@
   "homepage": "https://rfoel.com/bulma-toast",
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
-    "commitizen": "^4.0.4",
-    "cz-conventional-changelog": "^3.1.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.1.1",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "jest": "^24.9.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "rollup": "^1.23.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-babel-minify": "^9.1.0",
-    "standard-version": "^8.0.1"
+    "semantic-release": "^17.2.1"
   },
   "files": [
     "dist",
@@ -51,10 +54,5 @@
       "!**/dist/**"
     ],
     "testEnvironment": "jest-environment-jsdom-sixteen"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   }
 }
