@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.1.0 (2020-10-27)
+
+
+### Features
+
+* allow offsetting the toast position ([#58](https://github.com/rfoel/bulma-toast/issues/58)) ([f38ac7a](https://github.com/rfoel/bulma-toast/commit/f38ac7a9b4a274f78cc8d98f47a45f6d4807288a))
+
 ### 2.0.3 (2020-08-24)
 
 
