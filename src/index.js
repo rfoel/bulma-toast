@@ -5,32 +5,43 @@ const defaults = {
   closeOnClick: true,
   opacity: 1,
   single: false,
+  offsetTop: 0,
+  offsetBottom: 0,
+  offsetLeft: 0,
+  offsetRight: 0,
 }
 
 const COMMON_STYLES =
   'width:100%;z-index:99999;position:fixed;pointer-events:none;display:flex;flex-direction:column;padding:15px;'
 
-const CONTAINER_STYLES = {
-  'top-left': 'left:0;top:0;text-align:left;align-items:flex-start;',
-  'top-right': 'right:0;top:0;text-align:right;align-items:flex-end;',
-  'top-center': 'top:0;left:0;right:0;text-align:center;align-items:center;',
-  'bottom-left': 'left:0;bottom:0;text-align:left;align-items:flex-start;',
-  'bottom-right': 'right:0;bottom:0;text-align:right;align-items:flex-end;',
-  'bottom-center':
-    'bottom:0;left:0;right:0;text-align:center;align-items:center;',
-  center:
-    'top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;',
+const CONTAINER_STYLES = (position, offsetTop, offsetBottom, offsetLeft, offsetRight) => {
+  switch (position) {
+    case 'top-left':
+      return `left:${offsetLeft};top:${offsetTop};text-align:left;align-items:flex-start;`
+    case 'top-right':
+      return `right:${offsetRight};top:${offsetTop};text-align:right;align-items:flex-end;`
+    case 'top-center':
+      return `top:${offsetTop};left:0;right:0;text-align:center;align-items:center;`
+    case 'bottom-left':
+      return `left:${offsetLeft};bottom:${offsetBottom};text-align:left;align-items:flex-start;`
+    case 'bottom-right':
+      return `right:${offsetRight};bottom:${offsetBottom};text-align:right;align-items:flex-end;`
+    case 'bottom-center':
+      return `bottom:${offsetBottom};left:0;right:0;text-align:center;align-items:center;`
+    case 'center':
+      return `top:0;left:0;right:0;bottom:0;flex-flow:column;justify-content:center;align-items:center;`
+  }
 }
 
 let containers = {}
 let doc = document
 
-function findOrCreateContainer(position) {
+function findOrCreateContainer(position, offsetTop, offsetBottom, offsetLeft, offsetRight) {
   if (containers.position) return containers.position
 
   const container = doc.createElement('div')
 
-  container.setAttribute('style', COMMON_STYLES + CONTAINER_STYLES[position])
+  container.setAttribute('style', COMMON_STYLES + CONTAINER_STYLES(position, offsetTop, offsetBottom, offsetLeft, offsetRight))
 
   doc.body.appendChild(container)
 
@@ -43,7 +54,13 @@ export function toast(params) {
   const options = { ...defaults, ...params }
 
   const toast = new Toast(options)
-  const container = findOrCreateContainer(options.position || defaults.position)
+  const container = findOrCreateContainer(
+    options.position || defaults.position,
+    options.offsetTop || defaults.offsetTop,
+    options.offsetBottom || defaults.offsetBottom,
+    options.offsetLeft || defaults.offsetLeft,
+    options.offsetRight || defaults.offsetRight,
+  )
 
   if (options.single) {
     let child = container.lastElementChild
@@ -77,6 +94,10 @@ class Toast {
     this.message = options.message
     this.duration = options.duration
     this.pauseOnHover = options.pauseOnHover
+    this.offsetTop = options.offsetTop
+    this.offsetBottom = options.offsetBottom
+    this.offsetLeft = options.offsetLeft
+    this.offsetRight = options.offsetRight
 
     let style = `width:auto;pointer-events:auto;display:inline-flex;white-space:pre-wrap;opacity:${this.opacity};`
     const classes = ['notification']
