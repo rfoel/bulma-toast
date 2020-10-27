@@ -1,7 +1,7 @@
 # bulma-toast
 
 [![npm version](https://badge.fury.io/js/bulma-toast.svg)](https://badge.fury.io/js/bulma-toast)
-![Build package and publish](https://github.com/rfoel/bulma-toast/workflows/Build%20package%20and%20publish/badge.svg)
+![Publish](https://github.com/rfoel/bulma-toast/workflows/Publish/badge.svg)
 
 Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notification](https://bulma.io/documentation/elements/notification) implemented as a toast plugin.
 
@@ -36,38 +36,39 @@ The plugin comes with 5 options to be used as a JavaScript object:
 1.  Link to bulma-toast.min.js
 
 ```html
-  <script src="bulma-toast.min.js"></script>
+<script src="bulma-toast.min.js"></script>
 ```
 
 2.  Use bulma-toast to display a toast
 
 ```js
-bulmaToast.toast({ message: "Hello There" });
-bulmaToast.toast({ message: "General Kenobi", type: "is-danger" });
+bulmaToast.toast({ message: 'Hello There' })
+bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger' })
 ```
 
 ## Change document context
 
 ```js
-bulmaToast.setDoc(window.document);
+bulmaToast.setDoc(window.document)
 ```
+
 This can be changed before each toast call and can be set to eny element.
 
 ## ES Modules
 
 ```js
 // Import the toast function
-import * as bulmaToast from "bulma-toast";
+import * as bulmaToast from 'bulma-toast'
 // Or use
 // import { toast as superToast } from 'bulma-toast'
 // to rename your import
 
 toast({
-  message: "Hello There",
-  type: "is-success",
+  message: 'Hello There',
+  type: 'is-success',
   dismissible: true,
-  animate: { in: "fadeIn", out: "fadeOut" }
-});
+  animate: { in: 'fadeIn', out: 'fadeOut' },
+})
 ```
 
 ## The Defaults
@@ -89,13 +90,19 @@ A simple default object to prevent errors. Your options will be merged with thes
 Bulma Toast supports [animate.css](https://daneden.github.io/animate.css/) (and maybe others?). You MUST include [animate.css](https://daneden.github.io/animate.css/) on your document's `<head>`
 
 ```html
-  <head>
-    <link rel="stylesheet" href="animate.min.css">
-    <!-- or -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css">
-    <!-- or -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
-  </head>
+<head>
+  <link rel="stylesheet" href="animate.min.css" />
+  <!-- or -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css"
+  />
+  <!-- or -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+</head>
 ```
 
 Accepts a object with `in` and `out` with css classes to add animations. Using Animate.css you would pass a object like this:
@@ -114,46 +121,46 @@ _Warning_: Don't use `opacity` when using animations. Some of them use the opaci
 ## Examples
 
 ```js
-import { toast } from "bulma-toast";
+import { toast } from 'bulma-toast'
 
 toast({
-  message: "Hello There",
-  type: "is-success",
-  dismissible: true,
-  pauseOnHover: true
-});
-
-toast({
-  message: "<h1>LOOK HERE</h1>",
-  type: "is-danger",
+  message: 'Hello There',
+  type: 'is-success',
   dismissible: true,
   pauseOnHover: true,
-  animate: { in: "fadeIn", out: "fadeOut" }
-});
+})
 
-const myMessage = `It's ${new Date().toDateString()}`;
+toast({
+  message: '<h1>LOOK HERE</h1>',
+  type: 'is-danger',
+  dismissible: true,
+  pauseOnHover: true,
+  animate: { in: 'fadeIn', out: 'fadeOut' },
+})
+
+const myMessage = `It's ${new Date().toDateString()}`
 
 toast({
   message: myMessage,
-  type: "is-primary",
-  position: "center",
+  type: 'is-primary',
+  position: 'center',
   closeOnClick: true,
   pauseOnHover: true,
-  opacity: 0.8
-});
+  opacity: 0.8,
+})
 
-const elm = document.createElement("a");
-elm.text = "Visit my website!";
-elm.href = "https://rfoel.com";
+const elm = document.createElement('a')
+elm.text = 'Visit my website!'
+elm.href = 'https://rfoel.com'
 
 toast({
   message: elm,
-  type: "is-warning",
-  position: "center",
+  type: 'is-warning',
+  position: 'center',
   closeOnClick: true,
   pauseOnHover: true,
-  animate: { in: "fadeIn", out: "fadeOut" }
-});
+  animate: { in: 'fadeIn', out: 'fadeOut' },
+})
 ```
 
 ## Contributing
