@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.6.3",
     "commitizen": "^4.0.4",
     "cz-conventional-changelog": "^3.1.0",
-    "jest": "^24.9.0",
+    "jest": "^26.6.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "rollup": "^1.23.1",
     "rollup-plugin-babel": "^4.3.3",
