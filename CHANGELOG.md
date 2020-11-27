@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/rfoel/bulma-toast/compare/v2.1.0...v2.2.0) (2020-11-27)
+
+
+### Features
+
+* add setDefaults feature ([ceebb89](https://github.com/rfoel/bulma-toast/commit/ceebb8950e5d6f22d29e007115ecf5aa89b5065c))
+
 ## [2.1.1](https://github.com/rfoel/bulma-toast/compare/v2.1.0...v2.1.1) (2020-11-27)
 
 
