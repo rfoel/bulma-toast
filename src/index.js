@@ -1,4 +1,6 @@
-const defaults = {
+
+
+const baseConfig = {
   message: 'Your message here',
   duration: 2000,
   position: 'top-right',
@@ -10,6 +12,8 @@ const defaults = {
   offsetLeft: 0,
   offsetRight: 0,
 }
+
+let defaults = { ...baseConfig };
 
 const COMMON_STYLES =
   'width:100%;z-index:99999;position:fixed;pointer-events:none;display:flex;flex-direction:column;padding:15px;'
@@ -71,6 +75,14 @@ export function toast(params) {
   }
 
   container.appendChild(toast.element)
+}
+
+export function setDefaults(params) {
+  defaults = { ...baseConfig, ...params  };
+}
+
+export function resetDefaults() {
+  defaults = { ...baseConfig };
 }
 
 export function setDoc(newDoc) {
