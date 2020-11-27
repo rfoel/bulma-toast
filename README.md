@@ -11,9 +11,9 @@ Bulma's pure JavaScript extension to display toasts. Basically a Bulma's [notifi
 
 ## Options
 
-The plugin comes with 5 options to be used as a JavaScript object:
+The plugin comes with the following options:
 
-- `message`: The actual message to be displayed. It can be a string, a template string, or a DOM node. [See examples](#examples).
+- `message`: The actual message to be displayed. It can be a string, a template string, or a DOM node. [See examples](#examples). This is **required**.
 - `type`: Essentially a Bulma's css class. It can be `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`, or any other custom class. Default is a whitesmoke background with dark text as shown [here](https://bulma.io/documentation/elements/notification).
 - `duration`: Duration of the notification in milliseconds. Default is `2000` milliseconds.
 - `position`: Position where the notification will be shown. The default is `top-right`, so if you want it to be on the top-left just add `top-left` to this option. The available options are: `top-left`, `top-center`, `top-right`, `center`, `bottom-left`, `bottom-center`, and `bottom-right`.
@@ -25,10 +25,14 @@ The plugin comes with 5 options to be used as a JavaScript object:
 
 ## Install
 
-#### [npm](https://www.npmjs.com/package/bulma-toast)
+```
+  npm install bulma-toast
+```
+
+or
 
 ```
-  npm install --save bulma-toast
+  yarn add bulma-toast
 ```
 
 ## Quick Start
@@ -45,14 +49,6 @@ The plugin comes with 5 options to be used as a JavaScript object:
 bulmaToast.toast({ message: 'Hello There' })
 bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger' })
 ```
-
-## Change document context
-
-```js
-bulmaToast.setDoc(window.document)
-```
-
-This can be changed before each toast call and can be set to eny element.
 
 ## ES Modules
 
@@ -71,19 +67,41 @@ toast({
 })
 ```
 
-## The Defaults
+## Default config
 
 A simple default object to prevent errors. Your options will be merged with these and the defaults will be used if the fields are not provided.
 
-```js
-  {
-    message: "Your message here",
-    duration: 2000,
-    position: "top-right",
-    closeOnClick: true,
-    opacity: 1
-  }
+```json
+{
+  "duration": 2000,
+  "position": "top-right",
+  "closeOnClick": true,
+  "opacity": 1,
+  "single": false,
+  "offsetTop": 0,
+  "offsetBottom": 0,
+  "offsetLeft": 0,
+  "offsetRight": 0
+}
 ```
+
+The default config can be updated using the funcion `setDefaults`. Also, it's possible to reset to the default config using `resetDefaults`
+
+```js
+bulmaToast.setDefaults({
+  duration: 1000,
+  position: 'top-left',
+  closeOnClick: false,
+})
+```
+
+## Change document context
+
+```js
+bulmaToast.setDoc(window.document)
+```
+
+This can be changed before each toast call and can be set to eny element.
 
 ## Animate
 
@@ -165,10 +183,8 @@ toast({
 
 ## Contributing
 
-Can you make this plugin better? Clean the mess I made? Feel free to do so!
+Issues and pull requests are welcome.
 
-1.  Fork it ( https://github.com/rfoel/bulma-toast/fork )
-2.  Create your feature branch (`git checkout -b my_new_feature`)
-3.  Commit your changes (`git commit -am 'Add some feature'`)
-4.  Push to the branch (`git push origin my_new_feature`)
-5.  Create a new Pull Request
+## License
+
+[MIT](https://github.com/rfoell/bulma-toast/blob/master/LICENSE)
