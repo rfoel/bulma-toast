@@ -41,6 +41,7 @@ const CONTAINER_STYLES = (
 }
 
 function findOrCreateContainer(
+  appendTo,
   position,
   offsetTop,
   offsetBottom,
@@ -62,7 +63,7 @@ function findOrCreateContainer(
         offsetRight,
       ),
   )
-  doc.body.appendChild(container)
+  appendTo.appendChild(container)
   containers.position = container
   return container
 }
@@ -89,6 +90,7 @@ export function toast(params) {
 
   const toast = new Toast(options)
   const container = findOrCreateContainer(
+    options.appendTo || doc.body,
     options.position || defaults.position,
     options.offsetTop || defaults.offsetTop,
     options.offsetBottom || defaults.offsetBottom,

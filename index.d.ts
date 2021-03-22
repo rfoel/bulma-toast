@@ -14,6 +14,7 @@ export interface Options {
   closeOnClick?: boolean;
   opacity?: number;
   animate?: ToastAnimation;
+  appendTo?: Node;
 }
 
 export type ToastType = 'is-primary'
