@@ -1,3 +1,24 @@
+# [2.3.0](https://github.com/rfoel/bulma-toast/compare/v2.2.0...v2.3.0) (2021-03-22)
+
+
+### Features
+
+* add appendTo option ([0363f7d](https://github.com/rfoel/bulma-toast/commit/0363f7dbbd66016118376e7e108dd58c69045fd3))
+
+# [2.2.0](https://github.com/rfoel/bulma-toast/compare/v2.1.0...v2.2.0) (2020-11-27)
+
+
+### Features
+
+* add setDefaults feature ([ceebb89](https://github.com/rfoel/bulma-toast/commit/ceebb8950e5d6f22d29e007115ecf5aa89b5065c))
+
+## [2.1.1](https://github.com/rfoel/bulma-toast/compare/v2.1.0...v2.1.1) (2020-11-27)
+
+
+### Bug Fixes
+
+* update lib ([e2f2c04](https://github.com/rfoel/bulma-toast/commit/e2f2c044ab4a0e4ca2f51aafc951f1e6985699f3))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

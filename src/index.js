@@ -41,6 +41,7 @@ const CONTAINER_STYLES = (
 }
 
 function findOrCreateContainer(
+  appendTo,
   position,
   offsetTop,
   offsetBottom,
@@ -62,9 +63,25 @@ function findOrCreateContainer(
         offsetRight,
       ),
   )
-  doc.body.appendChild(container)
+  appendTo.appendChild(container)
   containers.position = container
   return container
+}
+
+export function setDefaults(params) {
+  defaults = { ...baseConfig, ...params }
+}
+
+export function resetDefaults() {
+  defaults = { ...baseConfig }
+}
+
+export function setDoc(newDoc) {
+  for (const key in containers) {
+    containers[key].remove()
+  }
+  containers = {}
+  doc = newDoc
 }
 
 export function setDefaults(params) {
@@ -89,6 +106,7 @@ export function toast(params) {
 
   const toast = new Toast(options)
   const container = findOrCreateContainer(
+    options.appendTo || doc.body,
     options.position || defaults.position,
     options.offsetTop || defaults.offsetTop,
     options.offsetBottom || defaults.offsetBottom,

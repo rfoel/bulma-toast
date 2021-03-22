@@ -1,5 +1,9 @@
 export function toast(options: Options): void;
 
+export function setDefaults(options: Options): void;
+
+export function resetDefaults(): void;
+
 export interface Options {
   message?: string | HTMLElement;
   type?: ToastType;
@@ -10,6 +14,7 @@ export interface Options {
   closeOnClick?: boolean;
   opacity?: number;
   animate?: ToastAnimation;
+  appendTo?: Node;
 }
 
 export type ToastType = 'is-primary'
