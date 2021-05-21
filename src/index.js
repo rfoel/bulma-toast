@@ -11,7 +11,7 @@ const baseConfig = {
 }
 let defaults = { ...baseConfig }
 let containers = {}
-let doc = document
+let doc = document ? document : undefined
 const COMMON_STYLES =
   'width:100%;z-index:99999;position:fixed;pointer-events:none;display:flex;flex-direction:column;padding:15px;'
 
@@ -55,13 +55,13 @@ function findOrCreateContainer(
   container.setAttribute(
     'style',
     COMMON_STYLES +
-      CONTAINER_STYLES(
-        position,
-        offsetTop,
-        offsetBottom,
-        offsetLeft,
-        offsetRight,
-      ),
+    CONTAINER_STYLES(
+      position,
+      offsetTop,
+      offsetBottom,
+      offsetLeft,
+      offsetRight,
+    ),
   )
   appendTo.appendChild(container)
   containers.position = container
@@ -196,7 +196,7 @@ class Toast {
     }
   }
 
-  onAnimationEnd(callback = () => {}) {
+  onAnimationEnd(callback = () => { }) {
     const animations = {
       animation: 'animationend',
       OAnimation: 'oAnimationEnd',
