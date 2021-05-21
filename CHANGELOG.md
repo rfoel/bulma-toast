@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/rfoel/bulma-toast/compare/v2.3.0...v2.3.1) (2021-05-21)
+
+
+### Bug Fixes
+
+* fix ssr ([a5156b2](https://github.com/rfoel/bulma-toast/commit/a5156b2f50d8b2de8c928cc058aeac55cf53fdf4))
+
 # [2.3.0](https://github.com/rfoel/bulma-toast/compare/v2.2.0...v2.3.0) (2021-03-22)
 
 
