@@ -11,7 +11,7 @@ const baseConfig = {
 }
 let defaults = { ...baseConfig }
 let containers = {}
-let doc = document
+let doc = null
 const COMMON_STYLES =
   'width:100%;z-index:99999;position:fixed;pointer-events:none;display:flex;flex-direction:column;padding:15px;'
 
@@ -40,6 +40,10 @@ const CONTAINER_STYLES = (
   }
 }
 
+function getDocument() {
+  return doc ?? document;
+}
+
 function findOrCreateContainer(
   appendTo,
   position,
@@ -50,18 +54,18 @@ function findOrCreateContainer(
 ) {
   if (containers.position) return containers.position
 
-  const container = doc.createElement('div')
+  const container = getDocument().createElement('div')
 
   container.setAttribute(
     'style',
     COMMON_STYLES +
-      CONTAINER_STYLES(
-        position,
-        offsetTop,
-        offsetBottom,
-        offsetLeft,
-        offsetRight,
-      ),
+    CONTAINER_STYLES(
+      position,
+      offsetTop,
+      offsetBottom,
+      offsetLeft,
+      offsetRight,
+    ),
   )
   appendTo.appendChild(container)
   containers.position = container
@@ -90,7 +94,7 @@ export function toast(params) {
 
   const toast = new Toast(options)
   const container = findOrCreateContainer(
-    options.appendTo || doc.body,
+    options.appendTo || getDocument().body,
     options.position || defaults.position,
     options.offsetTop || defaults.offsetTop,
     options.offsetBottom || defaults.offsetBottom,
@@ -111,7 +115,7 @@ export function toast(params) {
 
 class Toast {
   constructor(options) {
-    this.element = doc.createElement('div')
+    this.element = getDocument().createElement('div')
     this.opacity = options.opacity
     this.type = options.type
     this.animate = options.animate
@@ -139,7 +143,7 @@ class Toast {
 
     this.element.className = classes.join(' ')
     if (this.dismissible) {
-      const dismissButton = doc.createElement('button')
+      const dismissButton = getDocument().createElement('button')
       dismissButton.className = 'delete'
       dismissButton.addEventListener('click', () => {
         this.destroy()
@@ -196,7 +200,7 @@ class Toast {
     }
   }
 
-  onAnimationEnd(callback = () => {}) {
+  onAnimationEnd(callback = () => { }) {
     const animations = {
       animation: 'animationend',
       OAnimation: 'oAnimationEnd',
