@@ -132,7 +132,7 @@ class Toast {
     this.extraClasses = options.extraClasses
 
     let style = `width:auto;pointer-events:auto;display:inline-flex;white-space:pre-wrap;opacity:${this.opacity};`
-    const classes = ['notification', extraClasses]
+    const classes = ['notification', this.extraClasses]
     if (this.type) classes.push(this.type)
     if (this.animate && this.animate.in) {
       const animateInClass = `animate__${this.animate.in}`
