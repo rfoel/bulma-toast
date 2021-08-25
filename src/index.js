@@ -8,6 +8,7 @@ const baseConfig = {
   offsetBottom: 0,
   offsetLeft: 0,
   offsetRight: 0,
+  extraClasses: '',
 }
 let defaults = { ...baseConfig }
 let containers = {}
@@ -128,9 +129,10 @@ class Toast {
     this.offsetBottom = options.offsetBottom
     this.offsetLeft = options.offsetLeft
     this.offsetRight = options.offsetRight
+    this.extraClasses = options.extraClasses
 
     let style = `width:auto;pointer-events:auto;display:inline-flex;white-space:pre-wrap;opacity:${this.opacity};`
-    const classes = ['notification']
+    const classes = ['notification', extraClasses]
     if (this.type) classes.push(this.type)
     if (this.animate && this.animate.in) {
       const animateInClass = `animate__${this.animate.in}`
