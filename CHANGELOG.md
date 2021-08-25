@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/rfoel/bulma-toast/compare/v2.3.1...v2.4.0) (2021-08-25)
+
+
+### Features
+
+* add extra classes option ([4f08fdf](https://github.com/rfoel/bulma-toast/commit/4f08fdf9f930b112ccdfc12f05b8d08050731fa1))
+
 ## [2.3.1](https://github.com/rfoel/bulma-toast/compare/v2.3.0...v2.3.1) (2021-05-21)
 
 
