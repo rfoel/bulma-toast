@@ -23,7 +23,7 @@ The plugin comes with the following options:
 - `opacity`: The notification's container opacity. Default is `1`.
 - `animate`: [See here](#animate). Default is no animations.
 - `appendTo`: By default, the notification will be appended to [`document.body`](https://developer.mozilla.org/en-US/docs/Web/API/Document/body). Pass a different [Node](https://developer.mozilla.org/en-US/docs/Web/API/Node) to have it appended else where in the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
-
+- `extraClasses`: Adds classes for styling the toast notification.
 ## Install
 
 ```
