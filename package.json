@@ -7,7 +7,7 @@
   "browser": "dist/bulma-toast.min.js",
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
     "start": "rollup -c -w",
     "test": "jest"
   },
