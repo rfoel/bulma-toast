@@ -15,6 +15,7 @@ export interface Options {
   opacity?: number;
   animate?: ToastAnimation;
   appendTo?: Node;
+  extraClasses?: string;
 }
 
 export type ToastType = 'is-primary'
