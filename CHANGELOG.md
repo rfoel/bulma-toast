@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/rfoel/bulma-toast/compare/v2.4.0...v2.4.1) (2021-08-30)
+
+
+### Bug Fixes
+
+* fix merge of PR [#202](https://github.com/rfoel/bulma-toast/issues/202) ([#205](https://github.com/rfoel/bulma-toast/issues/205)) ([e4b931d](https://github.com/rfoel/bulma-toast/commit/e4b931dcc1947ade62f1513c15a79a40062916fe))
+
 # [2.4.0](https://github.com/rfoel/bulma-toast/compare/v2.3.1...v2.4.0) (2021-08-25)
 
 
