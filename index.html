@@ -1,250 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bulma Toast</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+    <script src="https://unpkg.com/bulma-toast"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bulma Toast</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
-  <script src="dist/bulma-toast.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
 
-  <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-    }
+      .toast {
+        height: 26px;
+        margin-right: 10px;
+      }
 
-    .toast {
-      height: 26px;
-      margin-right: 10px;
-    }
+      .icon {
+        color: #fff;
+        font-size: 0.8rem;
+      }
 
-    .icon {
-      color: #fff;
-      font-size: 0.8rem;
-    }
+      .icon svg {
+        width: 100%;
+      }
 
-    .icon svg {
-      width: 100%;
-    }
+      ol {
+        padding-left: 15px;
+      }
 
-    ol {
-      padding-left: 15px;
-    }
+      footer {
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+      }
 
-    footer {
-      display: flex;
-      align-items: center;
-      flex-flow: column;
-    }
+      footer img {
+        width: 150px;
+      }
 
-    footer img {
-      width: 150px;
-    }
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.125;
+        margin: 25px 0;
+      }
 
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1.125;
-      margin: 25px 0;
-    }
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.25;
+        margin: 25px 0;
+      }
+    </style>
+  </head>
 
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      line-height: 1.25;
-      margin: 25px 0;
-    }
-  </style>
-</head>
-
-<body>
-  <section id="top" class="hero is-light is-fullheight">
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              <svg class="toast" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <circle fill="currentColor" cx="155" cy="117" r="20" />
-                <circle fill="currentColor" cx="185" cy="422" r="20" />
-                <circle fill="currentColor" cx="212" cy="222" r="20" />
-                <circle fill="currentColor" cx="168" cy="315" r="20" />
-                <circle fill="currentColor" cx="358" cy="407" r="20" />
-                <path fill="currentColor"
-                  d="M254.682,0C167.844,0,101.027,14.15,56.089,42.056C20.968,63.866,0,95.022,0,125.399
+  <body>
+    <section id="top" class="hero is-light is-fullheight">
+      <div class="hero-head">
+        <header class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                <svg
+                  class="toast"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <circle fill="currentColor" cx="155" cy="117" r="20" />
+                  <circle fill="currentColor" cx="185" cy="422" r="20" />
+                  <circle fill="currentColor" cx="212" cy="222" r="20" />
+                  <circle fill="currentColor" cx="168" cy="315" r="20" />
+                  <circle fill="currentColor" cx="358" cy="407" r="20" />
+                  <path
+                    fill="currentColor"
+                    d="M254.682,0C167.844,0,101.027,14.15,56.089,42.056C20.968,63.866,0,95.022,0,125.399
             c0,34.171,19.957,64.374,50.101,78.128v235.736c0,40.107,32.63,72.737,72.737,72.737h263.425C426.37,512,459,479.37,459,439.263
             V204.68c31.492-13.164,53-44.275,53-79.281C512,78.824,457.805,0,254.682,0z M435.021,170.401L419,173.653v265.61
             c0,18.051-14.686,32.737-32.737,32.736H122.838c-18.051,0-32.737-14.686-32.737-32.737V173.726l-15.215-3.749
             C54.346,164.916,40,146.585,40,125.399c0-12.698,9.77-32.334,37.19-49.362C103.665,59.597,155.947,40,254.682,40
-            c98.922,0,151.914,19.645,178.95,36.126C461.921,93.369,472,112.886,472,125.401C472,147.126,456.448,166.051,435.021,170.401z" />
-                <circle fill="currentColor" cx="376" cy="113" r="20" />
-                <circle fill="currentColor" cx="328" cy="254" r="20" />
-                <circle fill="currentColor" cx="248" cy="381" r="20" />
-              </svg>
-              Bulma Toast
-            </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a href="#top" class="navbar-item">
-                Home
+            c98.922,0,151.914,19.645,178.95,36.126C461.921,93.369,472,112.886,472,125.401C472,147.126,456.448,166.051,435.021,170.401z"
+                  />
+                  <circle fill="currentColor" cx="376" cy="113" r="20" />
+                  <circle fill="currentColor" cx="328" cy="254" r="20" />
+                  <circle fill="currentColor" cx="248" cy="381" r="20" />
+                </svg>
+                Bulma Toast
               </a>
-              <a href="#doc" class="navbar-item">
-                Documentation
-              </a>
-              <span class="navbar-item">
-                <a href="https://github.com/rfoel/bulma-toast" class="button is-dark" target="_blank">
-                  <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                      <path fill="currentColor"
-                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
-                      </path>
-                    </svg>
-                  </span>
-                  <span>Source Code</span>
-                </a>
+              <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                <span></span>
+                <span></span>
+                <span></span>
               </span>
             </div>
+            <div id="navbarMenuHeroC" class="navbar-menu">
+              <div class="navbar-end">
+                <a href="#top" class="navbar-item"> Home </a>
+                <a href="#doc" class="navbar-item"> Documentation </a>
+                <span class="navbar-item">
+                  <a
+                    href="https://github.com/rfoel/bulma-toast"
+                    class="button is-dark"
+                    target="_blank"
+                  >
+                    <span class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 496 512"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span>Source Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            Bulma's pure JavaScript extension to display toasts. Basically a
+            Bulma's notification implemented as a toast plugin.
+          </h1>
+          <div class="buttons is-centered">
+            <button class="button" onclick="displayToast('Top Left')">
+              Top Left
+            </button>
+            <button class="button" onclick="displayToast('Top Center')">
+              Top Center
+            </button>
+            <button class="button" onclick="displayToast('Top Right')">
+              Top Right
+            </button>
+            <button class="button" onclick="displayToast('Center')">
+              Center
+            </button>
+            <button class="button" onclick="displayToast('Bottom Left')">
+              Bottom Left
+            </button>
+            <button class="button" onclick="displayToast('Bottom Center')">
+              Bottom Center
+            </button>
+            <button class="button" onclick="displayToast('Bottom Right')">
+              Bottom Right
+            </button>
           </div>
         </div>
-      </header>
-    </div>
-
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title">
-          Bulma's pure JavaScript extension to display toasts.
-          Basically a Bulma's notification implemented as a toast plugin.
-        </h1>
-        <div class="buttons is-centered">
-          <button class="button" onclick="displayToast('Top Left')">
-            Top Left
-          </button>
-          <button class="button" onclick="displayToast('Top Center')">
-            Top Center
-          </button>
-          <button class="button" onclick="displayToast('Top Right')">
-            Top Right
-          </button>
-          <button class="button" onclick="displayToast('Center')">
-            Center
-          </button>
-          <button class="button" onclick="displayToast('Bottom Left')">
-            Bottom Left
-          </button>
-          <button class="button" onclick="displayToast('Bottom Center')">
-            Bottom Center
-          </button>
-          <button class="button" onclick="displayToast('Bottom Right')">
-            Bottom Right
-          </button>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="doc" class="section container">
-    <div class="has-text-centered">
-      Docs at
-      <a href="https://github.com/rfoel/bulma-toast" target="_blank">GitHub</a> or
-      <a href="https://www.npmjs.com/package/bulma-toast" target="_blank">NPM</a>.
-    </div>
-  </section>
+    <section id="doc" class="section container">
+      <div class="has-text-centered">
+        Docs at
+        <a href="https://github.com/rfoel/bulma-toast" target="_blank"
+          >GitHub</a
+        >
+        or
+        <a href="https://www.npmjs.com/package/bulma-toast" target="_blank"
+          >NPM</a
+        >.
+      </div>
+    </section>
 
-  <footer class="footer">
-    <a href="https://bulma.io">
-      <img src="https://bulma.io/images/made-with-bulma--semiblack.png" alt="Made with Bulma">
-    </a>
-    <p>
-      Made by
-      <a href="https://rfoel.com">
-        Rafael Franco
+    <footer class="footer">
+      <a href="https://bulma.io">
+        <img
+          src="https://bulma.io/images/made-with-bulma--semiblack.png"
+          alt="Made with Bulma"
+        />
       </a>
-    </p>
-  </footer>
+      <p>
+        Made by
+        <a href="https://rfoel.com"> Rafael Franco </a>
+      </p>
+    </footer>
 
-  <script>
-    const quotes = [
-      "Help me, Obi-Wan Kenobi. You’re my only hope.",
-      "I find your lack of faith disturbing.",
-      "The Force will be with you. Always.",
-      "Why, you stuck-up, half-witted, scruffy-looking nerf herder!",
-      "Never tell me the odds!",
-      "Do. Or do not. There is no try.",
-      "No. I am your father.",
-      "Now, young Skywalker, you will die.",
-      "Just for once, let me look on you with my own eyes.",
-      "There’s always a bigger fish.",
-      "In time, the suffering of your people will persuade you to see our point of view.",
-      "You can’t stop the change, any more than you can stop the suns from setting.",
-      "Fear is the path to the dark side. Fear leads to anger; anger leads to hate; hate leads to suffering. I sense much fear in you."
-    ]
-    const types = ['is-primary', 'is-link', 'is-info', 'is-success', 'is-warning', 'is-danger']
-    const buttons = document.querySelectorAll('.hero-body button')
-    const toast = document.querySelector('.toast')
+    <script>
+      const quotes = [
+        'Help me, Obi-Wan Kenobi. You’re my only hope.',
+        'I find your lack of faith disturbing.',
+        'The Force will be with you. Always.',
+        'Why, you stuck-up, half-witted, scruffy-looking nerf herder!',
+        'Never tell me the odds!',
+        'Do. Or do not. There is no try.',
+        'No. I am your father.',
+        'Now, young Skywalker, you will die.',
+        'Just for once, let me look on you with my own eyes.',
+        'There’s always a bigger fish.',
+        'In time, the suffering of your people will persuade you to see our point of view.',
+        'You can’t stop the change, any more than you can stop the suns from setting.',
+        'Fear is the path to the dark side. Fear leads to anger; anger leads to hate; hate leads to suffering. I sense much fear in you.',
+      ]
+      const types = [
+        'is-primary',
+        'is-link',
+        'is-info',
+        'is-success',
+        'is-warning',
+        'is-danger',
+      ]
+      const buttons = document.querySelectorAll('.hero-body button')
+      const toast = document.querySelector('.toast')
 
-    setInterval(() => {
+      setInterval(() => {
+        makeButtonsHappy()
+        makeToastHappy()
+      }, 4000)
+
+      function makeButtonsHappy() {
+        buttons.forEach(button => {
+          const type = types[Math.floor(types.length * Math.random())]
+          button.classList.add(type)
+          setTimeout(() => {
+            button.classList.remove(type)
+          }, 4000)
+        })
+      }
+
+      function makeToastHappy() {
+        const type = types[Math.floor(types.length * Math.random())].split(
+          '-',
+        )[1]
+        toast.classList.add(`has-text-${type}`)
+        setTimeout(() => {
+          toast.classList.remove(`has-text-${type}`)
+        }, 4000)
+      }
+
+      function displayToast(position) {
+        bulmaToast.toast({
+          message: quotes[Math.floor(Math.random() * (quotes.length + 1))],
+          type: types[Math.floor(types.length * Math.random())],
+          position: position.toLowerCase().replace(' ', '-'),
+          dismissible: true,
+          duration: 4000,
+          pauseOnHover: true,
+          animate: { in: 'fadeIn', out: 'fadeOut' },
+        })
+      }
+
       makeButtonsHappy()
       makeToastHappy()
-    }, 4000)
 
-    function makeButtonsHappy() {
-      buttons.forEach(button => {
-        const type = types[Math.floor(types.length * Math.random())]
-        button.classList.add(type)
-        setTimeout(() => {
-          button.classList.remove(type)
-        }, 4000)
-      })
-    }
+      const converter = new showdown.Converter()
+      const doc = document.querySelector('#doc')
 
-    function makeToastHappy() {
-      const type = types[Math.floor(types.length * Math.random())].split('-')[1]
-      toast.classList.add(`has-text-${type}`)
-      setTimeout(() => {
-        toast.classList.remove(`has-text-${type}`)
-      }, 4000)
-    }
-
-    function displayToast(position) {
-      bulmaToast.toast({
-        message: quotes[Math.floor(Math.random() * (quotes.length - 0 + 1)) + 0],
-        type: types[Math.floor(types.length * Math.random())],
-        position: position.toLowerCase().replace(' ', '-'),
-        dismissible: true,
-        duration: 4000,
-        pauseOnHover: true,
-        animate: { in: 'fadeIn', out: 'fadeOut' }
-      })
-    }
-
-    makeButtonsHappy()
-    makeToastHappy()
-
-    const converter = new showdown.Converter()
-    const doc = document.querySelector('#doc')
-
-    fetch('https://raw.githubusercontent.com/rfoel/bulma-toast/master/README.md')
-      .then(response => {
-        if (!response.ok) throw response
-        return response.text()
-      })
-      .then(
-        md => {
-          const html = converter.makeHtml(md);
+      fetch(
+        'https://raw.githubusercontent.com/rfoel/bulma-toast/master/README.md',
+      )
+        .then(response => {
+          if (!response.ok) throw response
+          return response.text()
+        })
+        .then(md => {
+          const html = converter.makeHtml(md)
           doc.innerHTML = html
         })
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

@@ -1,5 +1,9 @@
 export function toast(options: Options): void;
 
+export function setDefaults(options: Options): void;
+
+export function resetDefaults(): void;
+
 export interface Options {
   message?: string | HTMLElement;
   type?: ToastType;
@@ -10,6 +14,8 @@ export interface Options {
   closeOnClick?: boolean;
   opacity?: number;
   animate?: ToastAnimation;
+  appendTo?: Node;
+  extraClasses?: string;
 }
 
 export type ToastType = 'is-primary'
@@ -17,7 +23,11 @@ export type ToastType = 'is-primary'
   | 'is-info'
   | 'is-success'
   | 'is-warning'
-  | 'is-danger';
+  | 'is-danger'
+  | 'is-white'
+  | 'is-black'
+  | 'is-light'
+  | 'is-dark';
 
 export type ToastPosition = 'top-left'
   | 'top-right'
