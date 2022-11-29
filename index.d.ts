@@ -12,6 +12,7 @@ export interface Options {
   dismissible?: boolean;
   pauseOnHover?: boolean;
   closeOnClick?: boolean;
+  single?: boolean;
   opacity?: number;
   animate?: ToastAnimation;
   appendTo?: Node;
