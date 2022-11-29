@@ -19,6 +19,7 @@ The plugin comes with the following options:
 - `position`: Position where the notification will be shown. The default is `top-right`, so if you want it to be on the top-left just add `top-left` to this option. The available options are: `top-left`, `top-center`, `top-right`, `center`, `bottom-left`, `bottom-center`, and `bottom-right`.
 - `dismissible`: Whether the notification will have a close button or not. Default is `false`.
 - `pauseOnHover`: Pauses delay when hovering the notification. Default is `false`.
+- `single`: Only show a single toast in `appendTo`. Default is `false`.
 - `closeOnClick`: Dismisses the notification when clicked. Default is `true`.
 - `opacity`: The notification's container opacity. Default is `1`.
 - `animate`: [See here](#animate). Default is no animations.
