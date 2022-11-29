@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/rfoel/bulma-toast/compare/v2.4.1...v2.4.2) (2022-11-29)
+
+
+### Bug Fixes
+
+* Add 'single' to typescript defs ([#326](https://github.com/rfoel/bulma-toast/issues/326)) ([be17c8b](https://github.com/rfoel/bulma-toast/commit/be17c8bd9215a3a13dc89bd3b5ddeab8b5b0a157))
+
 ## [2.4.1](https://github.com/rfoel/bulma-toast/compare/v2.4.0...v2.4.1) (2021-08-30)
 
 
