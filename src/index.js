@@ -187,18 +187,17 @@ class Toast {
       this.onAnimationEnd(() => {
         this.removeParent(this.element.parentNode)
         this.element.remove()
-        delete containers.position
       })
     } else {
       this.removeParent(this.element.parentNode)
       this.element.remove()
-      delete containers.position
     }
   }
 
   removeParent(element) {
     if (element && element.children.length <= 1) {
       element.remove()
+      delete containers.position
     }
   }
 
