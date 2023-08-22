@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/rfoel/bulma-toast/compare/v2.4.2...v2.4.3) (2023-08-22)
+
+
+### Bug Fixes
+
+* issue where the toasts container would reset on each toast remove - Issue [#139](https://github.com/rfoel/bulma-toast/issues/139) ([#340](https://github.com/rfoel/bulma-toast/issues/340)) ([cc643df](https://github.com/rfoel/bulma-toast/commit/cc643df059607f6cb8bfa8c58ac86791a2c0dd1f))
+
 ## [2.4.2](https://github.com/rfoel/bulma-toast/compare/v2.4.1...v2.4.2) (2022-11-29)
 
 
