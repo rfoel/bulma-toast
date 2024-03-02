@@ -1,3 +1,11 @@
+## [2.4.4](https://github.com/rfoel/bulma-toast/compare/v2.4.3...v2.4.4) (2024-03-02)
+
+
+### Bug Fixes
+
+* Improve keywords in package.json ([#341](https://github.com/rfoel/bulma-toast/issues/341)) ([5c81448](https://github.com/rfoel/bulma-toast/commit/5c814483cd23de479b5c151e2eca57dbd95201c8))
+* message not optional in type definitions ([#342](https://github.com/rfoel/bulma-toast/issues/342)) ([2088cc8](https://github.com/rfoel/bulma-toast/commit/2088cc847fe7ad62c456ec368b587078644def37))
+
 ## [2.4.3](https://github.com/rfoel/bulma-toast/compare/v2.4.2...v2.4.3) (2023-08-22)
 
 
