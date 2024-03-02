@@ -5,7 +5,7 @@ export function setDefaults(options: Options): void;
 export function resetDefaults(): void;
 
 export interface Options {
-  message?: string | HTMLElement;
+  message: string | HTMLElement;
   type?: ToastType;
   duration?: number;
   position?: ToastPosition;
